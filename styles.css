@@ -1234,3 +1234,338 @@ body {
   border-radius: 8px;
   border-left: 2px solid var(--accent-blue);
 }
+
+/* ==========================================================================
+   Barra de Acciones Rápidas (Acceso Directo y Compartir con Logo)
+   ========================================================================== */
+.quick-action-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 22px;
+}
+
+@media (min-width: 600px) {
+  .quick-action-bar {
+    flex-direction: row;
+  }
+}
+
+.quick-action-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #fff;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.quick-action-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+}
+
+.quick-action-btn:active {
+  transform: scale(0.98);
+}
+
+.quick-action-install {
+  border-color: rgba(56, 189, 248, 0.28);
+  background: linear-gradient(135deg, rgba(14, 165, 233, 0.14) 0%, rgba(15, 23, 42, 0.85) 100%);
+}
+
+.quick-action-install:hover {
+  border-color: var(--accent-blue);
+  box-shadow: 0 6px 20px rgba(2, 132, 199, 0.25);
+}
+
+.quick-action-share {
+  border-color: rgba(52, 211, 153, 0.25);
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.12) 0%, rgba(15, 23, 42, 0.85) 100%);
+}
+
+.quick-action-share:hover {
+  border-color: var(--accent-green);
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.22);
+}
+
+.quick-action-icon-wrap {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: #090d16;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+}
+
+.quick-action-logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.share-icon-wrap {
+  background: rgba(16, 185, 129, 0.15);
+  border-color: rgba(52, 211, 153, 0.3);
+}
+
+.share-icon-wrap svg {
+  stroke: var(--accent-green);
+  width: 22px;
+  height: 22px;
+}
+
+.quick-action-text {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.quick-action-title {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.25;
+}
+
+.quick-action-sub {
+  font-size: 0.74rem;
+  color: #94a3b8;
+  line-height: 1.25;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.quick-action-arrow-wrap {
+  color: var(--text-muted);
+  opacity: 0.6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
+   Modal de Consentimiento para Instalación de Acceso Directo (PWA)
+   ========================================================================== */
+.install-consent-header {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.install-consent-logo-box {
+  width: 76px;
+  height: 76px;
+  border-radius: 20px;
+  margin: 0 auto 12px;
+  background: #090d16;
+  padding: 4px;
+  border: 2px solid rgba(56, 189, 248, 0.45);
+  box-shadow: 0 8px 24px rgba(2, 132, 199, 0.35);
+}
+
+.install-consent-logo-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  object-fit: cover;
+  display: block;
+}
+
+.install-consent-title {
+  font-size: 1.18rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 6px;
+  letter-spacing: -0.01em;
+}
+
+.install-consent-badge {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--accent-blue);
+  background: rgba(56, 189, 248, 0.12);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  border-radius: 20px;
+  padding: 3px 12px;
+}
+
+.install-consent-desc {
+  font-size: 0.86rem;
+  color: #cbd5e1;
+  line-height: 1.5;
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+.consent-points-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 14px;
+  margin-bottom: 18px;
+}
+
+.consent-point-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.consent-icon-col {
+  flex-shrink: 0;
+  margin-top: 2px;
+  width: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.consent-text-col {
+  font-size: 0.8rem;
+  color: #94a3b8;
+  line-height: 1.4;
+}
+
+.consent-text-col strong {
+  display: block;
+  color: #fff;
+  font-size: 0.84rem;
+  margin-bottom: 2px;
+}
+
+.ios-install-hint {
+  background: rgba(56, 189, 248, 0.08);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  border-radius: 12px;
+  padding: 12px 14px;
+  margin-bottom: 18px;
+}
+
+.ios-hint-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--accent-blue);
+  margin-bottom: 6px;
+}
+
+.ios-hint-text {
+  font-size: 0.78rem;
+  color: #cbd5e1;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.inline-icon {
+  display: inline-block;
+  vertical-align: middle;
+  width: 14px;
+  height: 14px;
+}
+
+.consent-actions-row {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.btn-consent-accept {
+  width: 100%;
+  padding: 14px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #0284c7, #38bdf8);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.95rem;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 4px 15px rgba(2, 132, 199, 0.4);
+  transition: all 0.2s ease;
+}
+
+.btn-consent-accept:active {
+  transform: scale(0.98);
+}
+
+.btn-consent-cancel {
+  width: 100%;
+  padding: 12px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.05);
+  color: #94a3b8;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-consent-cancel:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+
+/* ==========================================================================
+   Toast Notificaciones Flotantes
+   ========================================================================== */
+.toast {
+  position: fixed;
+  bottom: 85px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: rgba(15, 23, 42, 0.96);
+  border: 1px solid var(--accent-blue);
+  color: #fff;
+  padding: 11px 20px;
+  border-radius: 30px;
+  font-size: 0.84rem;
+  font-weight: 600;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 1100;
+  max-width: 90%;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.toast.show {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+

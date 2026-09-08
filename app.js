@@ -411,6 +411,7 @@ let currentState = "nacional";
 let currentCategory = "todas";
 let recognition = null;
 let isListening = false;
+let deferredInstallPrompt = null;
 
 // Inicialización
 document.addEventListener("DOMContentLoaded", () => {
@@ -424,6 +425,7 @@ function initApp() {
   renderEmergencyModal();
   setupVoiceRecognition();
   setupEventListeners();
+  setupPwaInstall();
   registerServiceWorker();
 }
 
@@ -1032,5 +1034,142 @@ function registerServiceWorker() {
         .then(reg => console.log('Service Worker registrado correctamente'))
         .catch(err => console.log('Error registrando Service Worker:', err));
     });
+  }
+}
+
+// ==========================================================================
+// Instalación de Acceso Directo (PWA) con Consentimiento del Usuario y Logo
+// ==========================================================================
+
+function setupPwaInstall() {
+  window.addEventListener("beforeinstallprompt", (e) => {
+    e.preventDefault();
+    deferredInstallPrompt = e;
+    console.log("Evento beforeinstallprompt interceptado");
+  });
+
+  window.addEventListener("appinstalled", () => {
+    deferredInstallPrompt = null;
+    showToast("✅ ¡Acceso directo creado con el logo oficial en tu pantalla de inicio!");
+    updateInstallButtonState(true);
+  });
+
+  // Verificar si ya se ejecuta como PWA standalone
+  const isStandalone = window.matchMedia("(display-mode: standalone)").matches || (window.navigator.standalone === true);
+  if (isStandalone) {
+    updateInstallButtonState(true);
+  }
+}
+
+function updateInstallButtonState(isInstalled) {
+  const btn = document.getElementById("btnInstallPwa");
+  if (!btn) return;
+  const title = btn.querySelector(".quick-action-title");
+  const sub = btn.querySelector(".quick-action-sub");
+  if (isInstalled) {
+    if (title) title.textContent = "Acceso Directo Activo";
+    if (sub) sub.textContent = "Instalada en tu móvil • 100% Offline";
+  }
+}
+
+function openInstallConsentModal() {
+  const isStandalone = window.matchMedia("(display-mode: standalone)").matches || (window.navigator.standalone === true);
+  if (isStandalone) {
+    showToast("✅ Guía Legal VE ya está instalada con su logo en tu pantalla.");
+    return;
+  }
+
+  const modal = document.getElementById("installConsentModal");
+  if (modal) {
+    const isIos = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+    const iosHint = document.getElementById("iosInstallHint");
+    const acceptBtn = document.getElementById("btnAcceptInstall");
+
+    if (isIos && iosHint) {
+      iosHint.style.display = "block";
+      if (acceptBtn) {
+        acceptBtn.innerHTML = `
+          <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+          <span>Entendido, agregaré desde Safari</span>
+        `;
+      }
+    } else if (iosHint) {
+      iosHint.style.display = "none";
+      if (acceptBtn) {
+        acceptBtn.innerHTML = `
+          <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+          <span>Aceptar y Añadir al Móvil</span>
+        `;
+      }
+    }
+
+    modal.classList.add("active");
+  }
+}
+
+function closeInstallConsentModal() {
+  const modal = document.getElementById("installConsentModal");
+  if (modal) modal.classList.remove("active");
+}
+
+function executePwaInstall() {
+  const isIos = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+
+  if (deferredInstallPrompt) {
+    deferredInstallPrompt.prompt();
+    deferredInstallPrompt.userChoice.then((choiceResult) => {
+      if (choiceResult.outcome === "accepted") {
+        showToast("✅ Creando acceso directo con logo oficial...");
+      } else {
+        showToast("Instalación cancelada. Puedes añadirla en cualquier momento.");
+      }
+      deferredInstallPrompt = null;
+    });
+    closeInstallConsentModal();
+  } else if (isIos) {
+    closeInstallConsentModal();
+    showToast("Toca el botón Compartir de Safari y elige 'Añadir a pantalla de inicio'.");
+  } else {
+    closeInstallConsentModal();
+    showToast("Abre el menú (⋮) de tu navegador y pulsa 'Instalar aplicación' o 'Agregar a inicio'.");
+  }
+}
+
+// ==========================================================================
+// Botón Compartir con Otros Usuarios (Logo oficial en WhatsApp / Telegram)
+// ==========================================================================
+
+function shareApp() {
+  const shareTitle = "Guía Legal VE - Derechos Ciudadanos en Alcabalas";
+  const shareText = "🛡️ Ten a la mano la Guía Legal VE para defenderte con la ley en mano ante alcabalas y revisiones en Venezuela. Funciona 100% sin internet ni saldo:";
+  const shareUrl = "https://leonjuv.github.io/guia-legal-ve/";
+
+  if (navigator.share) {
+    navigator.share({
+      title: shareTitle,
+      text: shareText,
+      url: shareUrl
+    }).then(() => {
+      showToast("¡Gracias por compartir esta herramienta cívica!");
+    }).catch((err) => {
+      if (err.name !== "AbortError") {
+        fallbackCopyShare(shareText, shareUrl);
+      }
+    });
+  } else {
+    fallbackCopyShare(shareText, shareUrl);
+  }
+}
+
+function fallbackCopyShare(text, url) {
+  const fullShare = `${text}\n${url}`;
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(fullShare).then(() => {
+      showToast("✅ Enlace copiado con logo oficial. Pégalo en WhatsApp o Telegram.");
+    }).catch(() => {
+      prompt("Copia y comparte este enlace:", fullShare);
+    });
+  } else {
+    prompt("Copia y comparte este enlace:", fullShare);
   }
 }

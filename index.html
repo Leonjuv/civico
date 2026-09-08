@@ -9,10 +9,31 @@
   <meta name="theme-color" content="#090d16">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Guía Legal VE">
   <meta name="description" content="Verificador legal y de derechos para venezolanos. Consulta artículos de ley por texto o voz y verifica afirmaciones policiales al instante.">
   <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" sizes="192x192" href="icon-192.png">
+  <link rel="apple-touch-icon" sizes="512x512" href="icon-512.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
   <link rel="stylesheet" href="styles.css">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%2338bdf8%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22><path d=%22M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z%22/></svg>">
+
+  <!-- Open Graph / Meta de Compartir (WhatsApp, Telegram, Redes Sociales) -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://leonjuv.github.io/guia-legal-ve/">
+  <meta property="og:title" content="Guía Legal VE - Tus Derechos y Leyes en Alcabalas">
+  <meta property="og:description" content="Verificador legal offline y gratuito para ciudadanos en Venezuela. Conoce tus derechos ante alcabalas, retención de vehículos y revisión de celulares.">
+  <meta property="og:image" content="https://leonjuv.github.io/guia-legal-ve/icon-512.png">
+  <meta property="og:image:secure_url" content="https://leonjuv.github.io/guia-legal-ve/icon-512.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="512">
+  <meta property="og:image:height" content="512">
+  <meta property="og:image:alt" content="Logo Oficial Guía Legal VE">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Guía Legal VE - Tus Derechos y Leyes en Alcabalas">
+  <meta name="twitter:description" content="Verificador legal offline y gratuito para ciudadanos en Venezuela. Conoce tus derechos ante alcabalas, retención de vehículos y revisión de celulares.">
+  <meta name="twitter:image" content="https://leonjuv.github.io/guia-legal-ve/icon-512.png">
 </head>
 <body>
 
@@ -65,6 +86,45 @@
           <line x1="18" y1="6" x2="6" y2="18"/>
           <line x1="6" y1="6" x2="18" y2="18"/>
         </svg>
+      </button>
+    </section>
+
+    <!-- Barra de Acciones Rápidas: Acceso Directo y Compartir con Logo -->
+    <section class="quick-action-bar">
+      <button id="btnInstallPwa" class="quick-action-btn quick-action-install" onclick="openInstallConsentModal()" title="Crear acceso directo en tu móvil">
+        <div class="quick-action-icon-wrap">
+          <img src="icon-192.png" alt="Logo Guía Legal VE" class="quick-action-logo-img">
+        </div>
+        <div class="quick-action-text">
+          <span class="quick-action-title">Crear Acceso Directo</span>
+          <span class="quick-action-sub">Instalar en tu móvil • 100% Sin Internet</span>
+        </div>
+        <div class="quick-action-arrow-wrap">
+          <svg class="icon icon-sm" viewBox="0 0 24 24">
+            <path d="M12 5v14M19 12l-7 7-7-7"/>
+          </svg>
+        </div>
+      </button>
+
+      <button id="btnShareApp" class="quick-action-btn quick-action-share" onclick="shareApp()" title="Compartir aplicación con otros">
+        <div class="quick-action-icon-wrap share-icon-wrap">
+          <svg class="icon" viewBox="0 0 24 24">
+            <circle cx="18" cy="5" r="3"/>
+            <circle cx="6" cy="12" r="3"/>
+            <circle cx="18" cy="19" r="3"/>
+            <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
+            <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+          </svg>
+        </div>
+        <div class="quick-action-text">
+          <span class="quick-action-title">Compartir con Otros</span>
+          <span class="quick-action-sub">Enviar por WhatsApp o redes con logo</span>
+        </div>
+        <div class="quick-action-arrow-wrap">
+          <svg class="icon icon-sm" viewBox="0 0 24 24">
+            <polyline points="9 18 15 12 9 6"/>
+          </svg>
+        </div>
       </button>
     </section>
 
@@ -369,6 +429,98 @@
       </button>
     </div>
   </div>
+
+  <!-- Modal de Consentimiento para Acceso Directo PWA -->
+  <div id="installConsentModal" class="modal-backdrop">
+    <div class="modal-sheet">
+      <div class="modal-handle"></div>
+      
+      <div class="install-consent-header">
+        <div class="install-consent-logo-box">
+          <img src="icon-192.png" alt="Logo Oficial Guía Legal VE" class="install-consent-logo-img">
+        </div>
+        <h3 class="install-consent-title">¿Crear Acceso Directo en tu Móvil?</h3>
+        <span class="install-consent-badge">Herramienta Cívica 100% Offline</span>
+      </div>
+
+      <div class="install-consent-body">
+        <p class="install-consent-desc">
+          Para tener protección legal inmediata en alcabalas y puntos de control, puedes añadir <strong>Guía Legal VE</strong> directamente a tu pantalla de inicio.
+        </p>
+
+        <div class="consent-points-list">
+          <div class="consent-point-item">
+            <div class="consent-icon-col">
+              <svg class="icon icon-sm" viewBox="0 0 24 24" style="stroke: var(--accent-blue);">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            </div>
+            <div class="consent-text-col">
+              <strong>Icono Oficial en tu Pantalla</strong>
+              <span>Se creará el acceso directo con el logo de Guía Legal VE en tu escritorio móvil para abrirlo en 1 toque.</span>
+            </div>
+          </div>
+
+          <div class="consent-point-item">
+            <div class="consent-icon-col">
+              <svg class="icon icon-sm" viewBox="0 0 24 24" style="stroke: var(--accent-green);">
+                <circle cx="12" cy="12" r="10"/>
+                <polyline points="12 6 12 12 16 14"/>
+              </svg>
+            </div>
+            <div class="consent-text-col">
+              <strong>Funciona 100% Sin Internet ni Datos</strong>
+              <span>Podrás consultar los artículos y números de emergencia en cualquier carretera, peaje o zona rural sin señal.</span>
+            </div>
+          </div>
+
+          <div class="consent-point-item">
+            <div class="consent-icon-col">
+              <svg class="icon icon-sm" viewBox="0 0 24 24" style="stroke: var(--accent-gold);">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+              </svg>
+            </div>
+            <div class="consent-text-col">
+              <strong>Privacidad Total y Menos de 1 MB</strong>
+              <span>No consume espacio en tu memoria, no pide registros de cuenta ni rastrea tu teléfono.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Instrucción específica para Safari en iOS -->
+        <div id="iosInstallHint" class="ios-install-hint" style="display: none;">
+          <div class="ios-hint-title">
+            <svg class="icon icon-sm" viewBox="0 0 24 24" style="stroke: var(--accent-blue);">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="12" y1="16" x2="12" y2="12"/>
+              <line x1="12" y1="8" x2="12.01" y2="8"/>
+            </svg>
+            <span>Para iPhone / iPad (Safari):</span>
+          </div>
+          <p class="ios-hint-text">
+            1. Toca el botón <strong>Compartir</strong> <svg class="icon icon-sm inline-icon" viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg> en la barra inferior de Safari.<br>
+            2. Selecciona <strong>"Añadir a pantalla de inicio"</strong>.
+          </p>
+        </div>
+      </div>
+
+      <div class="consent-actions-row">
+        <button id="btnAcceptInstall" class="btn-consent-accept" onclick="executePwaInstall()">
+          <svg class="icon icon-sm" viewBox="0 0 24 24">
+            <path d="M12 5v14M19 12l-7 7-7-7"/>
+          </svg>
+          <span>Aceptar y Añadir al Móvil</span>
+        </button>
+        <button class="btn-consent-cancel" onclick="closeInstallConsentModal()">
+          Cancelar
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notificaciones Flotantes -->
+  <div id="appToast" class="toast" aria-live="polite"></div>
 
   <script src="app.js"></script>
 </body>

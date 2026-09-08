@@ -1,10 +1,13 @@
-const CACHE_NAME = "guia-legal-ve-v1";
+const CACHE_NAME = "guia-legal-ve-v2";
 const ASSETS_TO_CACHE = [
   "./",
   "./index.html",
   "./styles.css",
   "./app.js",
-  "./manifest.json"
+  "./manifest.json",
+  "./icon-192.png",
+  "./icon-512.png",
+  "./og-image.png"
 ];
 
 // Instalación: Cachear todos los archivos clave
