@@ -1222,8 +1222,8 @@ function trackCommunityClick(channel) {
 }
 
 // ==========================================================================
-// Comunidad CÍVICO & Captura Voluntaria de Leads (Boletín Legal)
-// ==========================================================================
+// URL de tu Google Apps Script para almacenar suscriptores en Google Sheets
+const GOOGLE_SHEETS_ENDPOINT = "https://script.google.com/macros/s/AKfycbx_OjwBEUzrq8Ame8AsDx-F5auCI1c5LSwPjo0EgMvgVklaSNesZTWWTX3F5Ji1w1-d/exec";
 
 function initCommunitySection() {
   const savedLead = localStorage.getItem("civico_newsletter_lead");
@@ -1265,12 +1265,28 @@ function handleNewsletterSubmit(event) {
     localStorage.setItem("civico_leads_archive", JSON.stringify(leadsList));
   } catch (e) {}
 
-  // 2. Disparar evento de conversión
+  // 2. Disparar evento de conversión a Analytics
   trackCivicoEvent("lead_subscribed", {
     domain: email.split("@")[1] || "unknown"
   });
 
-  // 3. Actualizar interfaz
+  // 3. Enviar a Google Sheets automáticamente en tiempo real
+  if (GOOGLE_SHEETS_ENDPOINT) {
+    try {
+      fetch(GOOGLE_SHEETS_ENDPOINT, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "text/plain;charset=utf-8" },
+        body: JSON.stringify({
+          email: email,
+          timestamp: new Date().toISOString(),
+          source: "civico_app"
+        })
+      }).catch(err => console.warn("Google Sheet sync notice:", err));
+    } catch (e) {}
+  }
+
+  // 4. Actualizar interfaz
   const form = document.getElementById("newsletterForm");
   const successBox = document.getElementById("newsletterSuccessBox");
   const successEmail = document.getElementById("newsletterSuccessEmail");
