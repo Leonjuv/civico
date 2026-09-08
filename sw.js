@@ -1,4 +1,4 @@
-const CACHE_NAME = "civico-v17";
+const CACHE_NAME = "civico-v18";
 const ASSETS_TO_CACHE = [
   "./",
   "./index.html",
