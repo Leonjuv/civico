@@ -479,13 +479,13 @@ function renderCards(cards, isSearchResult = false) {
             <line x1="21" y1="21" x2="16.65" y2="16.65"/>
           </svg>
         </div>
-        <h4 style="color: #fff; margin-bottom: 6px;">No se encontró información para esa consulta</h4>
+        <h4 style="color: #fff; margin-bottom: 6px;">No encontramos esa palabra o artículo exacto</h4>
         <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 16px;">
-          Prueba escribiendo el número directo del artículo (ej. <strong>"193"</strong>, <strong>"48"</strong>, <strong>"191"</strong>, <strong>"181"</strong>) o una frase clave como <strong>"morral"</strong>, <strong>"celular"</strong> o <strong>"grabar"</strong>.
+          Prueba buscando por número (ej: <strong>193</strong>, <strong>48</strong>, <strong>191</strong>) o palabras del día a día como <strong>celular</strong>, <strong>morral</strong> o <strong>grabar</strong>.
         </p>
         <button class="btn-script-action" style="margin: 0 auto;" onclick="resetSearch()">
           <svg class="icon icon-sm" viewBox="0 0 24 24"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
-          <span>Ver todos los temas</span>
+          <span>Ver todas las situaciones</span>
         </button>
       </div>
     `;
@@ -530,7 +530,7 @@ function renderCards(cards, isSearchResult = false) {
                 <line x1="12" y1="9" x2="12" y2="13"/>
                 <line x1="12" y1="17" x2="12.01" y2="17"/>
               </svg>
-              <span>Lo que suele decir el oficial:</span>
+              <span>Lo que suelen decirte en la calle:</span>
             </span>
             <div class="fact-claim-text">"${card.officerClaim}"</div>
           </div>
@@ -554,7 +554,7 @@ function renderCards(cards, isSearchResult = false) {
               <svg class="icon icon-sm" viewBox="0 0 24 24" style="stroke: var(--accent-blue);">
                 <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
               </svg>
-              <span>Tu respuesta en voz alta (Firme y respetuoso)</span>
+              <span>Tu respuesta recomendada (Con serenidad y firmeza):</span>
             </span>
           </div>
           <div class="script-box">"${card.script}"</div>
@@ -578,7 +578,7 @@ function renderCards(cards, isSearchResult = false) {
                 <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
                 <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
               </svg>
-              <span>Lo que realmente dice el artículo oficial</span>
+              <span>Lo que dice la ley de verdad:</span>
             </span>
           </div>
           <p class="legal-text">${card.actualLaw}</p>
@@ -592,7 +592,7 @@ function renderCards(cards, isSearchResult = false) {
               <svg class="icon icon-sm" viewBox="0 0 24 24" style="stroke: var(--accent-red);">
                 <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
               </svg>
-              <span>Consecuencia legal si el funcionario inventa o desacata</span>
+              <span>Leyes que violan si insisten:</span>
             </span>
           </div>
           <p class="consequence-text"><strong>${card.consequence}</strong></p>
@@ -601,7 +601,7 @@ function renderCards(cards, isSearchResult = false) {
           </ul>
           <div class="diplomatic-hint">
             <div class="diplomatic-title">
-              <span>Frase diplomática si el funcionario insiste:</span>
+              <span>Qué responder si siguen presionando:</span>
             </div>
             <div class="diplomatic-text">"${card.diplomaticPhrase}"</div>
           </div>

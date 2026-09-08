@@ -91,9 +91,9 @@
         </svg>
       </div>
       <div class="news-content">
-        <h4>Actualización de Seguridad y Tránsito</h4>
+        <h4>Dato clave para tu tranquilidad</h4>
         <p>
-          Las alcabalas fijas urbanas fueron sustituidas por patrullaje móvil preventivo. En carreteras interestatales y zonas fronterizas rige la <strong>Resolución Conjunta 109</strong>.
+          En las ciudades no deben existir alcabalas fijas, solo patrullaje móvil preventivo. Si viajas por carretera o frontera, recuerda que tus derechos están respaldados por la <strong>Resolución Conjunta 109</strong>.
         </p>
       </div>
       <button id="btnCloseBanner" class="btn-close-banner" title="Cerrar aviso" aria-label="Cerrar aviso">
@@ -111,14 +111,14 @@
           <circle cx="11" cy="11" r="8"/>
           <line x1="21" y1="21" x2="16.65" y2="16.65"/>
         </svg>
-        <span>Verificador de Artículos y Afirmaciones Policiales:</span>
+        <span>¿Qué te está diciendo o pidiendo el funcionario?</span>
       </div>
       <div class="search-bar">
         <input 
           type="text" 
           id="searchInput" 
           class="search-input" 
-          placeholder="Escribe o habla del artículo" 
+          placeholder="Escribe un artículo o tema: ej. 193, celular, morral..." 
           autocomplete="off"
         >
         <button id="btnPointer" class="btn-pointer" title="Hablar o consultar artículo" aria-label="Hablar o consultar artículo">
@@ -151,7 +151,7 @@
 
     <!-- 4. Verificador Legal en Vivo -->
     <div class="section-title">
-      <span>Verificador Legal en Vivo</span>
+      <span>Respuestas claras con la ley en mano</span>
       <span id="resultsCount" style="font-size: 0.75rem; color: var(--accent-blue);"></span>
     </div>
 
@@ -166,17 +166,17 @@
         <svg class="icon icon-sm" viewBox="0 0 24 24">
           <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
         </svg>
-        <span>Artículos y Temas Más Consultados:</span>
+        <span>Dudas más frecuentes en la calle:</span>
       </div>
       <div class="quick-chips-grid">
-        <button class="chip-btn" onclick="quickSearchArticle('193')">Art. 193 (Vehículo/Celular)</button>
-        <button class="chip-btn" onclick="quickSearchArticle('48')">Art. 48 (Celular/Chats)</button>
-        <button class="chip-btn" onclick="quickSearchArticle('191')">Art. 191 (Morral/Requisa)</button>
-        <button class="chip-btn" onclick="quickSearchArticle('20')">Art. 20 (Derecho a Grabar)</button>
-        <button class="chip-btn" onclick="quickSearchArticle('181')">Art. 181 (Retención Moto/Carro)</button>
-        <button class="chip-btn" onclick="quickSearchArticle('218')">Art. 218 (Resistencia)</button>
-        <button class="chip-btn" onclick="quickSearchArticle('44')">Art. 44 (Sin Cédula)</button>
-        <button class="chip-btn" onclick="quickSearchArticle('60')">Art. 60 (Soborno/Matraca)</button>
+        <button class="chip-btn" onclick="quickSearchArticle('193')">Art. 193 (¿Revisar carro o celular?)</button>
+        <button class="chip-btn" onclick="quickSearchArticle('48')">Art. 48 (Privacidad del celular)</button>
+        <button class="chip-btn" onclick="quickSearchArticle('191')">Art. 191 (Revisar morral o bolsillos)</button>
+        <button class="chip-btn" onclick="quickSearchArticle('20')">Art. 20 (Derecho a grabar)</button>
+        <button class="chip-btn" onclick="quickSearchArticle('181')">Art. 181 (Retener moto o carro)</button>
+        <button class="chip-btn" onclick="quickSearchArticle('218')">Art. 218 (Resistencia a la autoridad)</button>
+        <button class="chip-btn" onclick="quickSearchArticle('44')">Art. 44 (Si no llevas la cédula)</button>
+        <button class="chip-btn" onclick="quickSearchArticle('60')">Art. 60 (Pedir dinero / Matraca)</button>
       </div>
     </section>
 
@@ -188,24 +188,24 @@
           <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
           <line x1="12" y1="17" x2="12.01" y2="17"/>
         </svg>
-        <span>Reglas de Oro del Ciudadano</span>
+        <span>Consejos de oro para tu seguridad</span>
       </h3>
       <ol class="rules-list">
-        <li><strong>Mantén la calma y el respeto:</strong> No alteres la voz ni descalifiques al funcionario; exprésate con educación institucional y firmeza.</li>
-        <li><strong>Verifica el artículo:</strong> Cuando un policía te mencione un artículo, búscalo aquí. Descubrirás de inmediato si te está mintiendo para intimidarte.</li>
-        <li><strong>Tu vida e integridad van primero:</strong> Si el funcionario recurre a la intimidación armada, no forcejees físicamente. Memoriza su apellido, cuerpo policial y hora, y formula la denuncia inmediata ante la Fiscalía.</li>
+        <li><strong>Respira con calma y habla con educación:</strong> No subas el tono ni confrontes. La serenidad y la firmeza respetuosa desarman cualquier intento de intimidación.</li>
+        <li><strong>Revisa la ley en el momento:</strong> Si te mencionan una norma para asustarte o pedirte dinero, búscala aquí. Saber la verdad te dará seguridad y tranquilidad.</li>
+        <li><strong>Tu vida y tu integridad van primero:</strong> Si el oficial actúa armado o de forma agresiva, no forcejees físicamente. Memoriza su apellido, cuerpo policial y hora para formular la denuncia formal.</li>
       </ol>
     </section>
 
     <!-- 7. Acciones Rápidas (Debajo del todo): Agregar al Escritorio y Compartir -->
     <section class="quick-action-bar">
-      <button id="btnInstallPwa" class="quick-action-btn quick-action-install" onclick="openInstallConsentModal()" title="Agregar CÍVICO a tu pantalla de inicio">
+      <button id="btnInstallPwa" class="quick-action-btn quick-action-install" onclick="openInstallConsentModal()" title="Guardar CÍVICO en tu teléfono">
         <div class="quick-action-icon-wrap">
           <img src="icono-civico.svg" alt="Logo CÍVICO" class="quick-action-logo-img">
         </div>
         <div class="quick-action-text">
-          <span class="quick-action-title">Agregar a la Pantalla de Inicio</span>
-          <span class="quick-action-sub">Instalar acceso directo • 100% Sin Internet</span>
+          <span class="quick-action-title">Guardar CÍVICO en tu teléfono</span>
+          <span class="quick-action-sub">Ábrela en 1 segundo • Funciona 100% sin internet</span>
         </div>
         <div class="quick-action-arrow-wrap">
           <svg class="icon icon-sm" viewBox="0 0 24 24">
@@ -214,7 +214,7 @@
         </div>
       </button>
 
-      <button id="btnShareApp" class="quick-action-btn quick-action-share" onclick="shareApp()" title="Compartir CÍVICO con otros ciudadanos">
+      <button id="btnShareApp" class="quick-action-btn quick-action-share" onclick="shareApp()" title="Compartir CÍVICO con tu familia y amigos">
         <div class="quick-action-icon-wrap share-icon-wrap">
           <svg class="icon" viewBox="0 0 24 24">
             <circle cx="18" cy="5" r="3"/>
@@ -225,8 +225,8 @@
           </svg>
         </div>
         <div class="quick-action-text">
-          <span class="quick-action-title">Compartir CÍVICO</span>
-          <span class="quick-action-sub">Difundir por WhatsApp o redes con logo</span>
+          <span class="quick-action-title">Compartir con familia y amigos</span>
+          <span class="quick-action-sub">Pásala a quienes ruedan en la calle para que viajen tranquilos</span>
         </div>
         <div class="quick-action-arrow-wrap">
           <svg class="icon icon-sm" viewBox="0 0 24 24">
@@ -245,11 +245,11 @@
               <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
               <polyline points="22,6 12,13 2,6"/>
             </svg>
-            Boletín Legal & Actualizaciones
+            Boletín Legal & Novedades
           </span>
-          <h3 class="community-title">Únete a la Red CÍVICO</h3>
+          <h3 class="community-title">Mantente al día y protegido</h3>
           <p class="community-desc">
-            Recibe en tu correo alertas cuando se reformen leyes de tránsito, nuevas gacetas oficiales y herramientas para defender tus derechos.
+            Te avisaremos por correo cuando cambie una ley de tránsito, publiquen nuevas gacetas o agreguemos guías útiles para cuidarte en la calle.
           </p>
         </div>
 
@@ -261,10 +261,10 @@
                 <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
                 <polyline points="22,6 12,13 2,6"/>
               </svg>
-              <input type="email" id="newsletterEmail" class="newsletter-input" placeholder="tu-correo@ejemplo.com" required autocomplete="email">
+              <input type="email" id="newsletterEmail" class="newsletter-input" placeholder="Escribe tu correo aquí" required autocomplete="email">
             </div>
             <button type="submit" id="btnNewsletterSubmit" class="btn-newsletter-submit">
-              <span>Unirme</span>
+              <span>Suscribirme</span>
               <svg class="icon icon-sm" viewBox="0 0 24 24">
                 <line x1="5" y1="12" x2="19" y2="12"/>
                 <polyline points="12 5 19 12 12 19"/>
@@ -282,7 +282,7 @@
           </div>
           <div class="success-text">
             <strong>¡Ya formas parte de la Red CÍVICO!</strong>
-            <p id="newsletterSuccessEmail" class="success-sub">Recibirás nuestras actualizaciones legales importantes.</p>
+            <p id="newsletterSuccessEmail" class="success-sub">Recibirás nuestras novedades legales importantes.</p>
           </div>
         </div>
 
@@ -292,7 +292,7 @@
             <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
             <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
           </svg>
-          <span><strong>Privacidad blindada:</strong> Tu uso de leyes en alcabalas es 100% anónimo. No cruzamos consultas con tu correo ni compartimos datos con terceros.</span>
+          <span><strong>Tu privacidad es sagrada:</strong> Consultar leyes en CÍVICO es 100% anónimo. Jamás guardamos qué artículos revisas ni compartimos tus datos con nadie.</span>
         </div>
       </div>
     </section>
@@ -305,9 +305,9 @@
           <line x1="12" y1="16" x2="12" y2="12"/>
           <line x1="12" y1="8" x2="12.01" y2="8"/>
         </svg>
-        <span>Créditos & Marco Legal Constitucional</span>
+        <span>Propósito de la iniciativa & Respaldo legal</span>
       </button>
-      <p class="footer-copy">Iniciativa cívica independiente y gratuita • Venezuela</p>
+      <p class="footer-copy">Iniciativa ciudadana gratuita, solidaria e independiente • Venezuela</p>
     </footer>
 
   </main>
@@ -322,12 +322,12 @@
         <line x1="8" y1="23" x2="16" y2="23"/>
       </svg>
     </div>
-    <div class="voice-status">Te estamos escuchando...</div>
-    <div id="voiceTranscript" class="voice-transcript">"Habla ahora..."</div>
+    <div class="voice-status">Te escuchamos con atención...</div>
+    <div id="voiceTranscript" class="voice-transcript">"Habla con tranquilidad..."</div>
     <p class="voice-hint">
-      Di el artículo o lo que te dijo el oficial: <em>"Artículo 193"</em>, <em>"Dice que me va a llevar detenido"</em>, o <em>"Me quiere revisar el morral"</em>.
+      Dinos el número de artículo o lo que te dijo el oficial. Por ejemplo: <em>"Artículo 193"</em>, <em>"Me quiere revisar el morral"</em> o <em>"¿Puedo grabar?"</em>.
     </p>
-    <button id="btnCancelVoice" class="btn-cancel-voice">Cancelar</button>
+    <button id="btnCancelVoice" class="btn-cancel-voice">Volver al buscador</button>
   </div>
 
   <!-- Barra Flotante Inferior -->
@@ -366,10 +366,10 @@
         <svg class="icon" viewBox="0 0 24 24" style="stroke: var(--accent-blue); width: 26px; height: 26px;">
           <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
         </svg>
-        <span>Créditos & Sustento Legal</span>
+        <span>Propósito y Respaldo de CÍVICO</span>
       </div>
       <p class="modal-desc">
-        Información sobre la autoría, marco constitucional y principios jurídicos de esta iniciativa ciudadana.
+        Una iniciativa ciudadana e independiente para cuidarnos entre todos en la calle con el conocimiento de nuestras leyes.
       </p>
 
       <!-- Ficha de Autoría -->
@@ -385,7 +385,7 @@
           </div>
         </div>
         <p class="author-bio">
-          "Esta aplicación nace como un aporte cívico y solidario para los venezolanos, con el fin de empoderar a la ciudadanía con el conocimiento exacto de sus leyes, prevenir cobros irregulares y fomentar el respeto mutuo entre ciudadanos y funcionarios públicos."
+          "Esta aplicación nace como un aporte cívico y de corazón para los venezolanos. Nuestro propósito es que cada ciudadano conozca con claridad sus derechos, viaje tranquilo en la calle y fomentemos siempre el respeto mutuo entre ciudadanos y funcionarios públicos."
         </p>
       </div>
 
@@ -395,33 +395,33 @@
           <svg class="icon icon-sm" viewBox="0 0 24 24" style="stroke: var(--accent-gold);">
             <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
           </svg>
-          <span>Blindaje Jurídico y Constitucional</span>
+          <span>Bases legales que te protegen y respaldan</span>
         </h5>
         <ul class="shield-list">
           <li>
-            <strong>Deber Constitucional Cívico (Art. 131 CRBV):</strong> 
-            <em>"Toda persona tiene el deber de cumplir y acatar esta Constitución, las leyes y los demás actos del Poder Público."</em> La divulgación del texto auténtico de las leyes es un ejercicio legítimo del deber cívico de educar para su cumplimiento.
+            <strong>Deber cívico y constitucional (Art. 131 CRBV):</strong> 
+            Conocer y compartir la ley es un derecho y un deber de todo ciudadano para promover su cumplimiento correcto y pacífico.
           </li>
           <li>
-            <strong>Publicidad de los Actos Públicos (Art. 143 CRBV):</strong> 
-            Todos los textos, decretos y resoluciones citados son de estricto dominio público, tomados textualmente de la <strong>Gaceta Oficial de la República Bolivariana de Venezuela</strong>. No divulga información reservada ni vulnera la seguridad del Estado.
+            <strong>Leyes 100% públicas y oficiales (Art. 143 CRBV):</strong> 
+            Toda la información citada proviene textualmente de la <strong>Gaceta Oficial de la República Bolivariana de Venezuela</strong>. No divulga información reservada.
           </li>
           <li>
-            <strong>Promoción de la Desescalada y Convivencia:</strong> 
-            Esta herramienta instruye explícitamente a expresarse con educación, cortesía institucional y a jamás emplear la fuerza ni obstaculizar la labor policial legítima.
+            <strong>Cultura de respeto y desescalada pacífica:</strong> 
+            Esta app promueve siempre el diálogo educado, la serenidad y el respeto mutuo. No alienta la confrontación ni el desacato a la labor policial legítima.
           </li>
           <li>
-            <strong>Naturaleza Sin Fines de Lucro:</strong> 
-            Herramienta 100% gratuita, de libre consulta, sin afiliación partidista ni fines comerciales.
+            <strong>Iniciativa solidaria sin fines de lucro:</strong> 
+            Es un proyecto 100% gratuito, sin ataduras políticas ni fines comerciales, hecho por y para la ciudadanía.
           </li>
         </ul>
         <div class="legal-disclaimer">
-          <strong>Aviso Legal:</strong> Esta aplicación constituye un recurso de pedagogía ciudadana y divulgación jurídica. No sustituye la asesoría letrada de un abogado colegiado en procesos penales o litigios judiciales formales.
+          <strong>Aviso importante:</strong> CÍVICO es una herramienta educativa y de consulta rápida en la calle. No sustituye la asesoría letrada de un abogado en procesos penales o litigios judiciales formales.
         </div>
       </div>
 
       <button class="btn-close-modal" onclick="closeAboutModal()">
-        Cerrar ventana
+        Cerrar
       </button>
     </div>
   </div>
@@ -437,10 +437,10 @@
           <line x1="12" y1="9" x2="12" y2="13"/>
           <line x1="12" y1="17" x2="12.01" y2="17"/>
         </svg>
-        <span>Directorio de Emergencia</span>
+        <span>Líneas de auxilio y apoyo</span>
       </div>
       <p class="modal-desc">
-        Selecciona tu estado para números directos locales o marca a las líneas nacionales de auxilio.
+        Elige tu estado para ver números de emergencia directos o avisa a tus seres queridos si te retienen.
       </p>
 
       <!-- Selector de Estado de Venezuela -->
@@ -480,7 +480,7 @@
         <svg class="icon" viewBox="0 0 24 24" style="stroke: #fff;">
           <polygon points="3 11 22 2 13 21 11 13 3 11"/>
         </svg>
-        <span>Enviar Alerta SOS con mi Ubicación</span>
+        <span>Enviar alerta SOS con mi ubicación por WhatsApp</span>
       </button>
 
       <!-- Lista de Teléfonos Oficiales según Estado -->
@@ -489,7 +489,7 @@
       </div>
 
       <button class="btn-close-modal" onclick="closeSosModal()">
-        Cerrar ventana
+        Cerrar
       </button>
     </div>
   </div>
@@ -503,13 +503,13 @@
         <div class="install-consent-logo-box">
           <img src="icono-civico.svg" alt="Logo Oficial CÍVICO" class="install-consent-logo-img">
         </div>
-        <h3 class="install-consent-title">¿Crear Acceso Directo de CÍVICO en tu Móvil?</h3>
-        <span class="install-consent-badge">Herramienta Cívica 100% Offline</span>
+        <h3 class="install-consent-title">¿Guardar CÍVICO en la pantalla de tu móvil?</h3>
+        <span class="install-consent-badge">Siempre contigo • 100% Sin Internet</span>
       </div>
 
       <div class="install-consent-body">
         <p class="install-consent-desc">
-          Para tener protección legal inmediata en alcabalas y puntos de control, puedes añadir <strong>CÍVICO</strong> directamente a tu pantalla de inicio.
+          Para tenerla a mano en 1 segundo si te paran en una alcabala, puedes guardarla como un icono en tu teléfono. Abrirá al instante, incluso sin saldo ni señal.
         </p>
 
         <div class="consent-points-list">
@@ -520,8 +520,8 @@
               </svg>
             </div>
             <div class="consent-text-col">
-              <strong>Icono Oficial en tu Pantalla</strong>
-              <span>Se creará el acceso directo con el logo de CÍVICO en tu escritorio móvil para abrirlo en 1 toque.</span>
+              <strong>Acceso directo en 1 toque</strong>
+              <span>Tendrás el icono oficial en tu pantalla para abrirla de inmediato, como cualquier app nativa.</span>
             </div>
           </div>
 
@@ -533,8 +533,8 @@
               </svg>
             </div>
             <div class="consent-text-col">
-              <strong>Funciona 100% Sin Internet ni Datos</strong>
-              <span>Podrás consultar los artículos y números de emergencia en cualquier carretera, peaje o zona rural sin señal.</span>
+              <strong>Funciona en carretera, peajes y zonas sin señal</strong>
+              <span>Consulta todos los artículos y números de auxilio sin gastar saldo ni depender de internet.</span>
             </div>
           </div>
 
@@ -546,8 +546,8 @@
               </svg>
             </div>
             <div class="consent-text-col">
-              <strong>Privacidad Total y Menos de 1 MB</strong>
-              <span>No consume espacio en tu memoria, no pide registros de cuenta ni rastrea tu teléfono.</span>
+              <strong>Ligera y sin registros obligatorios</strong>
+              <span>Pesa menos de 1 MB, no te pide contraseñas y respeta totalmente tu privacidad.</span>
             </div>
           </div>
         </div>
@@ -574,10 +574,10 @@
           <svg class="icon icon-sm" viewBox="0 0 24 24">
             <path d="M12 5v14M19 12l-7 7-7-7"/>
           </svg>
-          <span>Aceptar y Añadir al Móvil</span>
+          <span>Aceptar y guardar en el móvil</span>
         </button>
         <button class="btn-consent-cancel" onclick="closeInstallConsentModal()">
-          Cancelar
+          Quizás más tarde
         </button>
       </div>
     </div>
