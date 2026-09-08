@@ -1,10 +1,12 @@
-const CACHE_NAME = "guia-legal-ve-v2";
+const CACHE_NAME = "civico-v3";
 const ASSETS_TO_CACHE = [
   "./",
   "./index.html",
   "./styles.css",
   "./app.js",
   "./manifest.json",
+  "./icono-civico.svg",
+  "./logotipo-civico.svg",
   "./icon-192.png",
   "./icon-512.png",
   "./og-image.png"

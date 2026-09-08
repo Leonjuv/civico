@@ -3,35 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Guía Legal VE - Verificador de Derechos Ciudadanos y Tránsito</title>
+  <title>CÍVICO - Verificador de Derechos Ciudadanos y Tránsito</title>
   
   <!-- PWA & Mobile Meta Tags -->
-  <meta name="theme-color" content="#090d16">
+  <meta name="theme-color" content="#0F172A">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="Guía Legal VE">
-  <meta name="description" content="Verificador legal y de derechos para venezolanos. Consulta artículos de ley por texto o voz y verifica afirmaciones policiales al instante.">
+  <meta name="apple-mobile-web-app-title" content="CÍVICO">
+  <meta name="description" content="CÍVICO: Verificador legal y de derechos para ciudadanos venezolanos. Consulta artículos de ley por texto o voz y verifica afirmaciones policiales al instante. 100% Offline.">
   <link rel="manifest" href="manifest.json">
   <link rel="apple-touch-icon" sizes="192x192" href="icon-192.png">
   <link rel="apple-touch-icon" sizes="512x512" href="icon-512.png">
+  <link rel="icon" type="image/svg+xml" href="icono-civico.svg">
   <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
   <link rel="stylesheet" href="styles.css">
 
   <!-- Open Graph / Meta de Compartir (WhatsApp, Telegram, Redes Sociales) -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://leonjuv.github.io/guia-legal-ve/">
-  <meta property="og:title" content="Guía Legal VE - Tus Derechos y Leyes en Alcabalas">
+  <meta property="og:title" content="CÍVICO - Tus Derechos y Leyes en Alcabalas">
   <meta property="og:description" content="Verificador legal offline y gratuito para ciudadanos en Venezuela. Conoce tus derechos ante alcabalas, retención de vehículos y revisión de celulares.">
   <meta property="og:image" content="https://leonjuv.github.io/guia-legal-ve/icon-512.png">
   <meta property="og:image:secure_url" content="https://leonjuv.github.io/guia-legal-ve/icon-512.png">
   <meta property="og:image:type" content="image/png">
   <meta property="og:image:width" content="512">
   <meta property="og:image:height" content="512">
-  <meta property="og:image:alt" content="Logo Oficial Guía Legal VE">
+  <meta property="og:image:alt" content="Logo Oficial CÍVICO">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Guía Legal VE - Tus Derechos y Leyes en Alcabalas">
+  <meta name="twitter:title" content="CÍVICO - Tus Derechos y Leyes en Alcabalas">
   <meta name="twitter:description" content="Verificador legal offline y gratuito para ciudadanos en Venezuela. Conoce tus derechos ante alcabalas, retención de vehículos y revisión de celulares.">
   <meta name="twitter:image" content="https://leonjuv.github.io/guia-legal-ve/icon-512.png">
 </head>
@@ -42,13 +43,11 @@
     <div class="header-brand">
       <div class="brand-info">
         <div class="brand-icon-wrapper">
-          <svg class="icon" viewBox="0 0 24 24">
-            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-          </svg>
+          <img src="icono-civico.svg" alt="Logo Oficial Cívico" class="brand-logo-img">
         </div>
         <div>
-          <h1 class="brand-title">Guía Legal VE</h1>
-          <span class="brand-subtitle">Verificador de Leyes & Tránsito</span>
+          <h1 class="brand-title">CÍVICO</h1>
+          <span class="brand-subtitle">Verificador Legal & Ciudadano</span>
         </div>
       </div>
       <div class="header-actions">
@@ -86,45 +85,6 @@
           <line x1="18" y1="6" x2="6" y2="18"/>
           <line x1="6" y1="6" x2="18" y2="18"/>
         </svg>
-      </button>
-    </section>
-
-    <!-- Barra de Acciones Rápidas: Acceso Directo y Compartir con Logo -->
-    <section class="quick-action-bar">
-      <button id="btnInstallPwa" class="quick-action-btn quick-action-install" onclick="openInstallConsentModal()" title="Crear acceso directo en tu móvil">
-        <div class="quick-action-icon-wrap">
-          <img src="icon-192.png" alt="Logo Guía Legal VE" class="quick-action-logo-img">
-        </div>
-        <div class="quick-action-text">
-          <span class="quick-action-title">Crear Acceso Directo</span>
-          <span class="quick-action-sub">Instalar en tu móvil • 100% Sin Internet</span>
-        </div>
-        <div class="quick-action-arrow-wrap">
-          <svg class="icon icon-sm" viewBox="0 0 24 24">
-            <path d="M12 5v14M19 12l-7 7-7-7"/>
-          </svg>
-        </div>
-      </button>
-
-      <button id="btnShareApp" class="quick-action-btn quick-action-share" onclick="shareApp()" title="Compartir aplicación con otros">
-        <div class="quick-action-icon-wrap share-icon-wrap">
-          <svg class="icon" viewBox="0 0 24 24">
-            <circle cx="18" cy="5" r="3"/>
-            <circle cx="6" cy="12" r="3"/>
-            <circle cx="18" cy="19" r="3"/>
-            <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
-            <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
-          </svg>
-        </div>
-        <div class="quick-action-text">
-          <span class="quick-action-title">Compartir con Otros</span>
-          <span class="quick-action-sub">Enviar por WhatsApp o redes con logo</span>
-        </div>
-        <div class="quick-action-arrow-wrap">
-          <svg class="icon icon-sm" viewBox="0 0 24 24">
-            <polyline points="9 18 15 12 9 6"/>
-          </svg>
-        </div>
       </button>
     </section>
 
@@ -233,6 +193,45 @@
         <li><strong>Verifica el artículo:</strong> Cuando un policía te mencione un artículo, búscalo aquí. Descubrirás de inmediato si te está mintiendo para intimidarte.</li>
         <li><strong>Tu vida e integridad van primero:</strong> Si el funcionario recurre a la intimidación armada, no forcejees físicamente. Memoriza su apellido, cuerpo policial y hora, y formula la denuncia inmediata ante la Fiscalía.</li>
       </ol>
+    </section>
+
+    <!-- 7. Acciones Rápidas (Debajo del todo): Agregar al Escritorio y Compartir -->
+    <section class="quick-action-bar">
+      <button id="btnInstallPwa" class="quick-action-btn quick-action-install" onclick="openInstallConsentModal()" title="Agregar CÍVICO a tu pantalla de inicio">
+        <div class="quick-action-icon-wrap">
+          <img src="icono-civico.svg" alt="Logo CÍVICO" class="quick-action-logo-img">
+        </div>
+        <div class="quick-action-text">
+          <span class="quick-action-title">Agregar a la Pantalla de Inicio</span>
+          <span class="quick-action-sub">Instalar acceso directo • 100% Sin Internet</span>
+        </div>
+        <div class="quick-action-arrow-wrap">
+          <svg class="icon icon-sm" viewBox="0 0 24 24">
+            <path d="M12 5v14M19 12l-7 7-7-7"/>
+          </svg>
+        </div>
+      </button>
+
+      <button id="btnShareApp" class="quick-action-btn quick-action-share" onclick="shareApp()" title="Compartir CÍVICO con otros ciudadanos">
+        <div class="quick-action-icon-wrap share-icon-wrap">
+          <svg class="icon" viewBox="0 0 24 24">
+            <circle cx="18" cy="5" r="3"/>
+            <circle cx="6" cy="12" r="3"/>
+            <circle cx="18" cy="19" r="3"/>
+            <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
+            <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+          </svg>
+        </div>
+        <div class="quick-action-text">
+          <span class="quick-action-title">Compartir CÍVICO</span>
+          <span class="quick-action-sub">Difundir por WhatsApp o redes con logo</span>
+        </div>
+        <div class="quick-action-arrow-wrap">
+          <svg class="icon icon-sm" viewBox="0 0 24 24">
+            <polyline points="9 18 15 12 9 6"/>
+          </svg>
+        </div>
+      </button>
     </section>
 
     <!-- Footer con Acceso a Créditos y Blindaje Legal -->
@@ -411,10 +410,10 @@
         </select>
       </div>
 
-      <!-- Botón de Alerta WhatsApp con Ubicación -->
+      <!-- Botón de Alerta WhatsApp con Ubicación y Puntero GPS -->
       <button class="btn-sos-whatsapp" onclick="sendSosWhatsApp()">
-        <svg class="icon" viewBox="0 0 24 24">
-          <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+        <svg class="icon" viewBox="0 0 24 24" style="stroke: #fff;">
+          <polygon points="3 11 22 2 13 21 11 13 3 11"/>
         </svg>
         <span>Enviar Alerta SOS con mi Ubicación</span>
       </button>
@@ -437,15 +436,15 @@
       
       <div class="install-consent-header">
         <div class="install-consent-logo-box">
-          <img src="icon-192.png" alt="Logo Oficial Guía Legal VE" class="install-consent-logo-img">
+          <img src="icono-civico.svg" alt="Logo Oficial CÍVICO" class="install-consent-logo-img">
         </div>
-        <h3 class="install-consent-title">¿Crear Acceso Directo en tu Móvil?</h3>
+        <h3 class="install-consent-title">¿Crear Acceso Directo de CÍVICO en tu Móvil?</h3>
         <span class="install-consent-badge">Herramienta Cívica 100% Offline</span>
       </div>
 
       <div class="install-consent-body">
         <p class="install-consent-desc">
-          Para tener protección legal inmediata en alcabalas y puntos de control, puedes añadir <strong>Guía Legal VE</strong> directamente a tu pantalla de inicio.
+          Para tener protección legal inmediata en alcabalas y puntos de control, puedes añadir <strong>CÍVICO</strong> directamente a tu pantalla de inicio.
         </p>
 
         <div class="consent-points-list">
@@ -457,7 +456,7 @@
             </div>
             <div class="consent-text-col">
               <strong>Icono Oficial en tu Pantalla</strong>
-              <span>Se creará el acceso directo con el logo de Guía Legal VE en tu escritorio móvil para abrirlo en 1 toque.</span>
+              <span>Se creará el acceso directo con el logo de CÍVICO en tu escritorio móvil para abrirlo en 1 toque.</span>
             </div>
           </div>
 

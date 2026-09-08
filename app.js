@@ -1075,7 +1075,7 @@ function updateInstallButtonState(isInstalled) {
 function openInstallConsentModal() {
   const isStandalone = window.matchMedia("(display-mode: standalone)").matches || (window.navigator.standalone === true);
   if (isStandalone) {
-    showToast("✅ Guía Legal VE ya está instalada con su logo en tu pantalla.");
+    showToast("✅ CÍVICO ya está instalada con su logo en tu pantalla.");
     return;
   }
 
@@ -1140,8 +1140,8 @@ function executePwaInstall() {
 // ==========================================================================
 
 function shareApp() {
-  const shareTitle = "Guía Legal VE - Derechos Ciudadanos en Alcabalas";
-  const shareText = "🛡️ Ten a la mano la Guía Legal VE para defenderte con la ley en mano ante alcabalas y revisiones en Venezuela. Funciona 100% sin internet ni saldo:";
+  const shareTitle = "CÍVICO - Derechos Ciudadanos en Alcabalas";
+  const shareText = "🛡️ Ten a la mano CÍVICO para defenderte con la ley en mano ante alcabalas y revisiones en Venezuela. Funciona 100% sin internet ni saldo:";
   const shareUrl = "https://leonjuv.github.io/guia-legal-ve/";
 
   if (navigator.share) {
