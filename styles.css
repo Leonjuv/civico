@@ -535,11 +535,13 @@ body {
   border-color: rgba(255, 255, 255, 0.15);
 }
 
-.compendium-toggle-card.expanded #compendiumToggleIcon {
+.compendium-toggle-card.expanded #compendiumToggleIcon,
+.compendium-toggle-card.expanded #chipsToggleIcon {
   transform: rotate(180deg);
 }
 
-#compendiumToggleIcon {
+#compendiumToggleIcon,
+#chipsToggleIcon {
   transition: transform 0.25s ease;
 }
 

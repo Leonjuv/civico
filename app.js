@@ -1584,6 +1584,7 @@ const REGIONAL_EMERGENCY_DATA = {
 let currentState = "nacional";
 let currentCategory = "todas";
 let isCompendiumExpanded = false;
+let isChipsExpanded = false;
 let recognition = null;
 let isListening = false;
 let deferredInstallPrompt = null;
@@ -1678,6 +1679,36 @@ function toggleFullCompendium() {
         cardEl.scrollIntoView({ behavior: "smooth", block: "start" });
       }, 50);
     }
+  }
+}
+
+// Función para Desplegar / Plegar la Sección de Dudas Más Frecuentes en la Calle
+function toggleChipsSection() {
+  isChipsExpanded = !isChipsExpanded;
+  const chipsGrid = document.getElementById("quickChipsGrid");
+  const chipsCard = document.getElementById("chipsToggleCard");
+  const chipsText = document.getElementById("chipsToggleText");
+  const chipsSub = document.getElementById("chipsToggleSub");
+
+  if (chipsGrid) {
+    chipsGrid.style.display = isChipsExpanded ? "flex" : "none";
+  }
+  if (chipsCard) {
+    chipsCard.classList.toggle("expanded", isChipsExpanded);
+  }
+  if (chipsText) {
+    chipsText.textContent = isChipsExpanded ? "Ocultar" : "Desplegar";
+  }
+  if (chipsSub) {
+    chipsSub.textContent = isChipsExpanded
+      ? "26 temas desplegados • Toca para plegar"
+      : "26 temas rápidos • Toca para desplegar";
+  }
+
+  if (isChipsExpanded && chipsCard) {
+    setTimeout(() => {
+      chipsCard.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 50);
   }
 }
 

@@ -179,13 +179,29 @@
 
     <!-- SECCIÓN 3: Dudas más frecuentes en la calle (Toca para consultar) -->
     <section class="consulted-section">
-      <div class="consulted-header">
-        <svg class="icon icon-sm" viewBox="0 0 24 24">
-          <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
-        </svg>
-        <span>Dudas más frecuentes en la calle (Toca para consultar):</span>
+      <!-- Tarjeta Desplegable de Dudas Frecuentes -->
+      <div id="chipsToggleCard" class="compendium-toggle-card chips-toggle-card" onclick="toggleChipsSection()">
+        <div class="compendium-toggle-left">
+          <div class="compendium-toggle-icon-wrap" style="background: rgba(0, 151, 215, 0.12); border-color: rgba(0, 151, 215, 0.28); color: var(--accent-blue);">
+            <svg class="icon icon-sm" viewBox="0 0 24 24">
+              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+            </svg>
+          </div>
+          <div class="compendium-toggle-text">
+            <span class="compendium-toggle-title">Dudas más frecuentes en la calle</span>
+            <span id="chipsToggleSub" class="compendium-toggle-sub">26 temas rápidos • Toca para desplegar</span>
+          </div>
+        </div>
+        <button class="btn-toggle-compendium" type="button" aria-label="Desplegar o plegar dudas frecuentes">
+          <span id="chipsToggleText">Desplegar</span>
+          <svg class="icon icon-xs" id="chipsToggleIcon" viewBox="0 0 24 24">
+            <polyline points="6 9 12 15 18 9"/>
+          </svg>
+        </button>
       </div>
-      <div class="quick-chips-grid">
+
+      <!-- Cuadrícula de Chips Desplegable (Plegada por defecto) -->
+      <div id="quickChipsGrid" class="quick-chips-grid" style="display: none; margin-bottom: 20px;">
         <button class="chip-btn" onclick="quickSearchArticle('193')">Art. 193 (¿Revisar carro o celular?)</button>
         <button class="chip-btn" onclick="quickSearchArticle('48')">Art. 48 (Privacidad del celular)</button>
         <button class="chip-btn" onclick="quickSearchArticle('20')">Art. 20 (Derecho a grabar)</button>
