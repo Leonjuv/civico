@@ -1090,31 +1090,6 @@ body {
   cursor: pointer;
 }
 
-/* Toast */
-.toast {
-  position: fixed;
-  bottom: 85px;
-  left: 50%;
-  transform: translateX(-50%) translateY(30px);
-  background: #0155A6;
-  color: #fff;
-  padding: 10px 20px;
-  border-radius: 30px;
-  font-size: 0.85rem;
-  font-weight: 600;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
-  opacity: 0;
-  pointer-events: none;
-  transition: all 0.25s ease;
-  z-index: 200;
-  white-space: nowrap;
-}
-
-.toast.show {
-  opacity: 1;
-  transform: translateX(-50%) translateY(0);
-}
-
 /* Footer & Botón de Créditos */
 .app-footer {
   text-align: center;
@@ -1485,29 +1460,118 @@ body {
   margin-bottom: 2px;
 }
 
-.ios-install-hint {
-  background: rgba(0, 151, 215, 0.08);
-  border: 1px solid rgba(0, 151, 215, 0.25);
-  border-radius: 12px;
-  padding: 12px 14px;
+/* Guía Universal Multi-Navegador para Instalación */
+.browser-install-guide {
+  background: rgba(15, 23, 42, 0.75);
+  border: 1px solid rgba(0, 151, 215, 0.3);
+  border-radius: 14px;
+  padding: 14px;
   margin-bottom: 18px;
+  transition: all 0.3s ease;
 }
 
-.ios-hint-title {
+.browser-install-guide.highlight-pulse {
+  border-color: var(--accent-blue);
+  box-shadow: 0 0 20px rgba(0, 151, 215, 0.5);
+  transform: scale(1.01);
+}
+
+.guide-header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.guide-header-title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--accent-blue);
   display: flex;
   align-items: center;
   gap: 6px;
-  font-size: 0.82rem;
-  font-weight: 700;
-  color: var(--accent-blue);
-  margin-bottom: 6px;
 }
 
-.ios-hint-text {
-  font-size: 0.78rem;
+.browser-tabs-selector {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+  scrollbar-width: none;
+}
+
+.browser-tabs-selector::-webkit-scrollbar {
+  display: none;
+}
+
+.btn-browser-tab {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #94a3b8;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 5px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.btn-browser-tab.active {
+  background: rgba(0, 151, 215, 0.2);
+  border-color: var(--accent-blue);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 151, 215, 0.25);
+}
+
+.guide-step-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  padding: 12px;
+}
+
+.guide-step-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.82rem;
   color: #cbd5e1;
   line-height: 1.45;
-  margin: 0;
+}
+
+.guide-step-row strong {
+  color: #fff;
+}
+
+.step-num {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--accent-blue);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.step-icon {
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+.guide-step-row.success-hint {
+  font-size: 0.78rem;
+  color: var(--accent-green);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding-top: 8px;
+  margin-top: 2px;
 }
 
 .inline-icon {
@@ -1564,29 +1628,34 @@ body {
 }
 
 /* ==========================================================================
-   Toast Notificaciones Flotantes
+   Toast Notificaciones Flotantes (100% Responsivo y Blindado)
    ========================================================================== */
 .toast {
   position: fixed;
-  bottom: 85px;
+  bottom: 95px;
   left: 50%;
   transform: translateX(-50%) translateY(20px);
-  background: rgba(15, 23, 42, 0.96);
+  background: rgba(15, 23, 42, 0.97);
   border: 1px solid var(--accent-blue);
   color: #fff;
-  padding: 11px 20px;
-  border-radius: 30px;
+  padding: 12px 20px;
+  border-radius: 20px;
   font-size: 0.84rem;
   font-weight: 600;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+  line-height: 1.45;
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.7);
   opacity: 0;
   pointer-events: none;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  z-index: 1100;
-  max-width: 90%;
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 12000;
+  width: max-content;
+  max-width: min(92vw, 420px);
+  box-sizing: border-box;
   text-align: center;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  white-space: normal;
+  word-break: break-word;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
 }
 
 .toast.show {

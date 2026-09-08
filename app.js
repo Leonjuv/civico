@@ -413,6 +413,23 @@ let recognition = null;
 let isListening = false;
 let deferredInstallPrompt = null;
 
+// Escucha Inmediata de Instalación PWA (Nivel Raíz para no perder el evento en Chromium/Edge/Chrome)
+window.addEventListener("beforeinstallprompt", (e) => {
+  e.preventDefault();
+  deferredInstallPrompt = e;
+  console.log("Evento beforeinstallprompt interceptado exitosamente");
+  updateInstallButtonState(false, true);
+});
+
+window.addEventListener("appinstalled", () => {
+  deferredInstallPrompt = null;
+  if (typeof trackCivicoEvent === "function") {
+    trackCivicoEvent("pwa_installed");
+  }
+  showToast("✅ ¡CÍVICO se instaló con éxito en tu pantalla de inicio!");
+  updateInstallButtonState(true);
+});
+
 // Inicialización
 document.addEventListener("DOMContentLoaded", () => {
   initApp();
@@ -1052,29 +1069,62 @@ function registerServiceWorker() {
 // Instalación de Acceso Directo (PWA) con Consentimiento del Usuario y Logo
 // ==========================================================================
 
+// Detección Inteligente del Navegador y Sistema Operativo
+function detectCurrentBrowser() {
+  const ua = navigator.userAgent || "";
+  const isIos = /iPad|iPhone|iPod/.test(ua) && !window.MSStream;
+  const isEdgeOrBing = /EdgA|Edge|BingWeb|BING/i.test(ua);
+  const isFirefox = /Firefox|FxiOS/i.test(ua);
+  const isSamsung = /SamsungBrowser/i.test(ua);
+  const isChrome = /Chrome|CriOS/i.test(ua) && !isEdgeOrBing && !isSamsung;
+  const isSafari = isIos || (/Safari/i.test(ua) && !isChrome && !isFirefox && !isEdgeOrBing && !isSamsung);
+
+  if (isSafari) return "safari";
+  if (isEdgeOrBing) return "edge";
+  if (isFirefox) return "firefox";
+  if (isChrome || isSamsung) return "chrome";
+  return "edge";
+}
+
+function selectBrowserGuide(browserKey) {
+  const allGuides = ["edge", "chrome", "firefox", "safari"];
+  allGuides.forEach(key => {
+    const el = document.getElementById(`guide-${key}`);
+    if (el) el.style.display = (key === browserKey) ? "block" : "none";
+    
+    const tabBtn = document.querySelector(`.btn-browser-tab[data-target-browser="${key}"]`);
+    if (tabBtn) {
+      if (key === browserKey) {
+        tabBtn.classList.add("active");
+      } else {
+        tabBtn.classList.remove("active");
+      }
+    }
+  });
+
+  const names = {
+    edge: "Bing / Microsoft Edge",
+    chrome: "Google Chrome",
+    firefox: "Mozilla Firefox",
+    safari: "Safari (iPhone / iPad)"
+  };
+  const titleEl = document.getElementById("guideBrowserName");
+  if (titleEl && names[browserKey]) {
+    titleEl.textContent = `Paso a paso para ${names[browserKey]}:`;
+  }
+}
+
 function setupPwaInstall() {
-  window.addEventListener("beforeinstallprompt", (e) => {
-    e.preventDefault();
-    deferredInstallPrompt = e;
-    trackCivicoEvent("pwa_prompt_received");
-    console.log("Evento beforeinstallprompt interceptado");
-  });
-
-  window.addEventListener("appinstalled", () => {
-    deferredInstallPrompt = null;
-    trackCivicoEvent("pwa_installed");
-    showToast("✅ ¡Acceso directo creado con el logo oficial en tu pantalla de inicio!");
-    updateInstallButtonState(true);
-  });
-
   // Verificar si ya se ejecuta como PWA standalone
   const isStandalone = window.matchMedia("(display-mode: standalone)").matches || (window.navigator.standalone === true);
   if (isStandalone) {
     updateInstallButtonState(true);
+  } else if (deferredInstallPrompt) {
+    updateInstallButtonState(false, true);
   }
 }
 
-function updateInstallButtonState(isInstalled) {
+function updateInstallButtonState(isInstalled, isPromptReady = false) {
   const btn = document.getElementById("btnInstallPwa");
   if (!btn) return;
   const title = btn.querySelector(".quick-action-title");
@@ -1082,43 +1132,43 @@ function updateInstallButtonState(isInstalled) {
   if (isInstalled) {
     if (title) title.textContent = "Acceso Directo Activo";
     if (sub) sub.textContent = "Instalada en tu móvil • 100% Offline";
+  } else if (isPromptReady) {
+    if (title) title.textContent = "Instalar CÍVICO en tu Pantalla";
+    if (sub) sub.textContent = "Toca para agregar a tu móvil en 1 toque";
   }
 }
 
 function openInstallConsentModal() {
   const isStandalone = window.matchMedia("(display-mode: standalone)").matches || (window.navigator.standalone === true);
   if (isStandalone) {
-    showToast("✅ CÍVICO ya está instalada con su logo en tu pantalla.");
+    showToast("✅ CÍVICO ya está instalada y activa en tu pantalla.");
     return;
   }
 
   trackCivicoEvent("pwa_consent_modal_open");
   const modal = document.getElementById("installConsentModal");
-  if (modal) {
-    const isIos = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-    const iosHint = document.getElementById("iosInstallHint");
-    const acceptBtn = document.getElementById("btnAcceptInstall");
+  if (!modal) return;
 
-    if (isIos && iosHint) {
-      iosHint.style.display = "block";
-      if (acceptBtn) {
-        acceptBtn.innerHTML = `
-          <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
-          <span>Entendido, agregaré desde Safari</span>
-        `;
-      }
-    } else if (iosHint) {
-      iosHint.style.display = "none";
-      if (acceptBtn) {
-        acceptBtn.innerHTML = `
-          <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
-          <span>Aceptar y Añadir al Móvil</span>
-        `;
-      }
+  const detected = detectCurrentBrowser();
+  selectBrowserGuide(detected);
+
+  const acceptBtnText = document.getElementById("btnAcceptInstallText");
+
+  if (deferredInstallPrompt) {
+    if (acceptBtnText) acceptBtnText.textContent = "Instalar en mi Pantalla Ahora";
+  } else {
+    if (detected === "safari") {
+      if (acceptBtnText) acceptBtnText.textContent = "Entendido, ver pasos para Safari";
+    } else if (detected === "edge") {
+      if (acceptBtnText) acceptBtnText.textContent = "Entendido, ver pasos para Bing/Edge";
+    } else if (detected === "firefox") {
+      if (acceptBtnText) acceptBtnText.textContent = "Entendido, ver pasos para Firefox";
+    } else {
+      if (acceptBtnText) acceptBtnText.textContent = "Ver pasos para instalar";
     }
-
-    modal.classList.add("active");
   }
+
+  modal.classList.add("active");
 }
 
 function closeInstallConsentModal() {
@@ -1127,28 +1177,47 @@ function closeInstallConsentModal() {
 }
 
 function executePwaInstall() {
-  const isIos = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+  const isStandalone = window.matchMedia("(display-mode: standalone)").matches || (window.navigator.standalone === true);
+  if (isStandalone) {
+    closeInstallConsentModal();
+    showToast("✅ CÍVICO ya está instalada en tu pantalla.");
+    return;
+  }
 
   if (deferredInstallPrompt) {
     deferredInstallPrompt.prompt();
     deferredInstallPrompt.userChoice.then((choiceResult) => {
       if (choiceResult.outcome === "accepted") {
         trackCivicoEvent("pwa_install_accepted");
-        showToast("✅ Creando acceso directo con logo oficial...");
+        showToast("✅ Creando acceso directo con el logo de CÍVICO...");
+        closeInstallConsentModal();
       } else {
         trackCivicoEvent("pwa_install_declined");
         showToast("Instalación cancelada. Puedes añadirla en cualquier momento.");
       }
       deferredInstallPrompt = null;
     });
-    closeInstallConsentModal();
-  } else if (isIos) {
-    closeInstallConsentModal();
-    trackCivicoEvent("pwa_ios_instruction_shown");
-    showToast("Toca el botón Compartir de Safari y elige 'Añadir a pantalla de inicio'.");
   } else {
-    closeInstallConsentModal();
-    showToast("Abre el menú (⋮) de tu navegador y pulsa 'Instalar aplicación' o 'Agregar a inicio'.");
+    const detected = detectCurrentBrowser();
+    trackCivicoEvent("pwa_manual_guide_shown", { browser: detected });
+    
+    // Resaltar visualmente la tarjeta de pasos dentro del modal
+    const activeGuide = document.getElementById("browserInstallGuide");
+    if (activeGuide) {
+      activeGuide.classList.add("highlight-pulse");
+      activeGuide.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      setTimeout(() => activeGuide.classList.remove("highlight-pulse"), 1800);
+    }
+    
+    if (detected === "safari") {
+      showToast("Toca Compartir ⎋ y luego 'Añadir a pantalla de inicio'.");
+    } else if (detected === "edge") {
+      showToast("Toca el menú (⋯ o ☰) de Bing/Edge y elige 'Agregar al teléfono'.");
+    } else if (detected === "firefox") {
+      showToast("Toca los tres puntos (⋮) de Firefox y elige 'Instalar'.");
+    } else {
+      showToast("Toca los tres puntos (⋮) y elige 'Instalar aplicación'.");
+    }
   }
 }
 

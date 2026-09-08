@@ -552,20 +552,81 @@
           </div>
         </div>
 
-        <!-- Instrucción específica para Safari en iOS -->
-        <div id="iosInstallHint" class="ios-install-hint" style="display: none;">
-          <div class="ios-hint-title">
-            <svg class="icon icon-sm" viewBox="0 0 24 24" style="stroke: var(--accent-blue);">
-              <circle cx="12" cy="12" r="10"/>
-              <line x1="12" y1="16" x2="12" y2="12"/>
-              <line x1="12" y1="8" x2="12.01" y2="8"/>
-            </svg>
-            <span>Para iPhone / iPad (Safari):</span>
+        <!-- Guía Universal Paso a Paso para Guardar en el Teléfono -->
+        <div id="browserInstallGuide" class="browser-install-guide">
+          <div class="guide-header">
+            <span class="guide-header-title" id="guideBrowserName">Instrucciones para tu navegador:</span>
+            <div class="browser-tabs-selector" id="browserTabsSelector">
+              <button type="button" class="btn-browser-tab active" data-target-browser="edge" onclick="selectBrowserGuide('edge')">Bing / Edge</button>
+              <button type="button" class="btn-browser-tab" data-target-browser="chrome" onclick="selectBrowserGuide('chrome')">Chrome</button>
+              <button type="button" class="btn-browser-tab" data-target-browser="firefox" onclick="selectBrowserGuide('firefox')">Firefox</button>
+              <button type="button" class="btn-browser-tab" data-target-browser="safari" onclick="selectBrowserGuide('safari')">Safari (iOS)</button>
+            </div>
           </div>
-          <p class="ios-hint-text">
-            1. Toca el botón <strong>Compartir</strong> <svg class="icon icon-sm inline-icon" viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg> en la barra inferior de Safari.<br>
-            2. Selecciona <strong>"Añadir a pantalla de inicio"</strong>.
-          </p>
+
+          <!-- Guía Edge / Bing -->
+          <div id="guide-edge" class="guide-step-card">
+            <div class="guide-step-row">
+              <span class="step-num">1</span>
+              <span>Toca el menú <strong>(⋯ o ☰)</strong> en la barra inferior de Bing/Edge.</span>
+            </div>
+            <div class="guide-step-row">
+              <span class="step-num">2</span>
+              <span>Selecciona <strong>"Agregar al teléfono"</strong> o <strong>"Instalar aplicación"</strong>.</span>
+            </div>
+            <div class="guide-step-row success-hint">
+              <span class="step-icon">✨</span>
+              <span>¡Listo! Tendrás el icono azul de CÍVICO en tu escritorio móvil.</span>
+            </div>
+          </div>
+
+          <!-- Guía Chrome -->
+          <div id="guide-chrome" class="guide-step-card" style="display: none;">
+            <div class="guide-step-row">
+              <span class="step-num">1</span>
+              <span>Toca los <strong>tres puntos (⋮)</strong> en la esquina superior derecha.</span>
+            </div>
+            <div class="guide-step-row">
+              <span class="step-num">2</span>
+              <span>Selecciona <strong>"Instalar aplicación"</strong> o <strong>"Agregar a la pantalla principal"</strong>.</span>
+            </div>
+            <div class="guide-step-row success-hint">
+              <span class="step-icon">✨</span>
+              <span>¡Listo! Se guardará en tu móvil y abrirá 100% offline.</span>
+            </div>
+          </div>
+
+          <!-- Guía Firefox -->
+          <div id="guide-firefox" class="guide-step-card" style="display: none;">
+            <div class="guide-step-row">
+              <span class="step-num">1</span>
+              <span>Toca los <strong>tres puntos (⋮)</strong> en la barra del navegador.</span>
+            </div>
+            <div class="guide-step-row">
+              <span class="step-num">2</span>
+              <span>Selecciona <strong>"Instalar"</strong> (o "Añadir a la pantalla de inicio").</span>
+            </div>
+            <div class="guide-step-row success-hint">
+              <span class="step-icon">✨</span>
+              <span>¡Listo! Quedará instalada como app nativa.</span>
+            </div>
+          </div>
+
+          <!-- Guía Safari iOS -->
+          <div id="guide-safari" class="guide-step-card" style="display: none;">
+            <div class="guide-step-row">
+              <span class="step-num">1</span>
+              <span>Toca el botón <strong>Compartir</strong> <svg class="icon icon-sm inline-icon" viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg> en la barra inferior de Safari.</span>
+            </div>
+            <div class="guide-step-row">
+              <span class="step-num">2</span>
+              <span>Desliza hacia abajo y pulsa <strong>"Añadir a pantalla de inicio"</strong> ➕.</span>
+            </div>
+            <div class="guide-step-row success-hint">
+              <span class="step-icon">✨</span>
+              <span>Toca <strong>"Añadir"</strong> arriba a la derecha y listo.</span>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -574,10 +635,10 @@
           <svg class="icon icon-sm" viewBox="0 0 24 24">
             <path d="M12 5v14M19 12l-7 7-7-7"/>
           </svg>
-          <span>Aceptar y guardar en el móvil</span>
+          <span id="btnAcceptInstallText">Guardar en la Pantalla de Inicio</span>
         </button>
         <button class="btn-consent-cancel" onclick="closeInstallConsentModal()">
-          Quizás más tarde
+          Entendido, cerrar
         </button>
       </div>
     </div>
