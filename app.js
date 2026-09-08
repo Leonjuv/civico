@@ -1142,7 +1142,7 @@ function executePwaInstall() {
 function shareApp() {
   const shareTitle = "CÍVICO - Derechos Ciudadanos en Alcabalas";
   const shareText = "🛡️ Ten a la mano CÍVICO para defenderte con la ley en mano ante alcabalas y revisiones en Venezuela. Funciona 100% sin internet ni saldo:";
-  const shareUrl = "https://leonjuv.github.io/guia-legal-ve/";
+  const shareUrl = "https://leonjuv.github.io/civico/";
 
   if (navigator.share) {
     navigator.share({
