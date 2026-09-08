@@ -1,4 +1,4 @@
-const CACHE_NAME = "civico-v7";
+const CACHE_NAME = "civico-v8";
 const ASSETS_TO_CACHE = [
   "./",
   "./index.html",
@@ -12,7 +12,10 @@ const ASSETS_TO_CACHE = [
   "./apple-touch-icon.png",
   "./favicon.png",
   "./og-image.png",
-  "./foto-leonardo.jpg"
+  "./foto-leonardo.jpg",
+  "./icon-tab-todas.png",
+  "./icon-tab-pie.png",
+  "./icon-tab-vehiculo.png"
 ];
 
 // Instalación: Cachear todos los archivos clave
