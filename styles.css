@@ -1181,6 +1181,14 @@ body {
   box-shadow: 0 4px 14px rgba(34, 197, 94, 0.35);
 }
 
+.btn-sos-whatsapp .icon-whatsapp {
+  width: 22px;
+  height: 22px;
+  fill: #ffffff;
+  stroke: none;
+  flex-shrink: 0;
+}
+
 .btn-close-modal {
   width: 100%;
   background: transparent;
