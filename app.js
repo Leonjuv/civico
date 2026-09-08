@@ -1139,6 +1139,7 @@ const REGIONAL_EMERGENCY_DATA = {
 // Estado de la Aplicación
 let currentState = "nacional";
 let currentCategory = "todas";
+let isCompendiumExpanded = false;
 let recognition = null;
 let isListening = false;
 let deferredInstallPrompt = null;
@@ -1205,21 +1206,89 @@ function normalizeText(text) {
     .trim();
 }
 
-// Renderizado de Fichas con Verificador de Argumentos y SVGs minimalistas
+
+// Función para Desplegar / Plegar el Compendio Completo de 26 Fichas
+function toggleFullCompendium() {
+  isCompendiumExpanded = !isCompendiumExpanded;
+  const searchInput = document.getElementById("searchInput");
+  const clearBtn = document.getElementById("btnClearSearch");
+  
+  if (searchInput && searchInput.value.trim()) {
+    searchInput.value = "";
+  }
+  if (clearBtn) {
+    clearBtn.classList.add("hidden");
+  }
+  
+  currentCategory = "todas";
+  document.querySelectorAll(".tab-btn").forEach(btn => {
+    btn.classList.toggle("active", btn.dataset.category === "todas");
+  });
+  
+  renderCards(LEGAL_DB, false);
+  
+  if (isCompendiumExpanded) {
+    const cardEl = document.getElementById("compendiumToggleCard");
+    if (cardEl) {
+      setTimeout(() => {
+        cardEl.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 50);
+    }
+  }
+}
+
+// Renderizado de Fichas con Verificador de Argumentos y Modo Inteligente Desplegable
 function renderCards(cards, isSearchResult = false) {
   const container = document.getElementById("cardsContainer");
-  const countBadge = document.getElementById("resultsCount");
+  const searchStatusBar = document.getElementById("searchStatusBar");
+  const searchStatusLabel = document.getElementById("searchStatusLabel");
+  const compendiumToggleCard = document.getElementById("compendiumToggleCard");
+  const compendiumToggleText = document.getElementById("compendiumToggleText");
+  const compendiumToggleSub = document.getElementById("compendiumToggleSub");
   
   if (!container) return;
   container.innerHTML = "";
-  
-  if (countBadge) {
-    countBadge.textContent = `${cards.length} temas`;
+
+  const searchInput = document.getElementById("searchInput");
+  const currentQuery = searchInput ? searchInput.value.trim() : "";
+  const isFiltering = isSearchResult || currentQuery.length > 0 || currentCategory !== "todas";
+
+  if (isFiltering) {
+    // Modo Búsqueda / Filtro Activo: Mostrar resultados inmediatamente
+    container.style.display = "flex";
+    if (compendiumToggleCard) compendiumToggleCard.classList.add("hidden");
+    if (searchStatusBar) {
+      searchStatusBar.classList.remove("hidden");
+      if (currentQuery) {
+        searchStatusLabel.innerHTML = `Resultados para <strong>"${currentQuery}"</strong> (${cards.length} ${cards.length === 1 ? 'tema' : 'temas'})`;
+      } else {
+        const catName = currentCategory === "pie" ? "A Pie (Peatón)" : "Vehículo / Moto";
+        searchStatusLabel.innerHTML = `Temas en <strong>${catName}</strong> (${cards.length} ${cards.length === 1 ? 'tema' : 'temas'})`;
+      }
+    }
+  } else {
+    // Modo Inicial: Controlado por el acordeón del compendio
+    if (searchStatusBar) searchStatusBar.classList.add("hidden");
+    if (compendiumToggleCard) {
+      compendiumToggleCard.classList.remove("hidden");
+      if (!isCompendiumExpanded) {
+        container.style.display = "none";
+        compendiumToggleCard.classList.remove("expanded");
+        if (compendiumToggleText) compendiumToggleText.textContent = "Desplegar";
+        if (compendiumToggleSub) compendiumToggleSub.textContent = "26 situaciones de calle • Toca para desplegar";
+        return;
+      } else {
+        container.style.display = "flex";
+        compendiumToggleCard.classList.add("expanded");
+        if (compendiumToggleText) compendiumToggleText.textContent = "Ocultar";
+        if (compendiumToggleSub) compendiumToggleSub.textContent = "26 situaciones desplegadas • Toca para plegar";
+      }
+    }
   }
   
   if (cards.length === 0) {
     container.innerHTML = `
-      <div style="text-align: center; padding: 36px 20px; background: var(--bg-card); border-radius: var(--card-radius); border: 1px solid var(--border-color);">
+      <div style="text-align: center; padding: 36px 20px; background: var(--bg-card); border-radius: var(--card-radius); border: 1px solid var(--border-color); width: 100%;">
         <div style="margin-bottom: 12px; color: var(--accent-blue);">
           <svg class="icon icon-lg" viewBox="0 0 24 24" style="width: 38px; height: 38px;">
             <circle cx="11" cy="11" r="8"/>
@@ -1228,7 +1297,7 @@ function renderCards(cards, isSearchResult = false) {
         </div>
         <h4 style="color: #fff; margin-bottom: 6px;">No encontramos esa palabra o artículo exacto</h4>
         <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 16px;">
-          Prueba buscando por número (ej: <strong>193</strong>, <strong>48</strong>, <strong>191</strong>) o palabras del día a día como <strong>celular</strong>, <strong>morral</strong> o <strong>grabar</strong>.
+          Prueba buscando por número (ej: <strong>193</strong>, <strong>48</strong>, <strong>181</strong>) o palabras del día a día como <strong>batea</strong>, <strong>celular</strong>, <strong>polarizado</strong> o <strong>comando</strong>.
         </p>
         <button class="btn-script-action" style="margin: 0 auto;" onclick="resetSearch()">
           <svg class="icon icon-sm" viewBox="0 0 24 24"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
@@ -1244,7 +1313,6 @@ function renderCards(cards, isSearchResult = false) {
     cardEl.className = "situation-card";
     cardEl.id = `card-${card.id}`;
     
-    // Si es un resultado de búsqueda específico de un artículo, expandirlo automáticamente
     if (isSearchResult && cards.length === 1) {
       cardEl.classList.add("expanded");
     }
@@ -1472,33 +1540,51 @@ function handleVoiceQuery(text) {
 
 function quickSearchArticle(query) {
   const searchInput = document.getElementById("searchInput");
+  const clearBtn = document.getElementById("btnClearSearch");
   if (searchInput) {
     searchInput.value = query;
   }
+  if (clearBtn) {
+    clearBtn.classList.remove("hidden");
+  }
   filterCardsByQuery(query);
   
-  // Desplazar la vista suavemente hacia la sección de verificación
-  const container = document.getElementById("cardsContainer");
-  if (container) {
-    container.scrollIntoView({ behavior: "smooth", block: "start" });
+  const searchStatusBar = document.getElementById("searchStatusBar");
+  if (searchStatusBar) {
+    setTimeout(() => {
+      searchStatusBar.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 50);
   }
 }
 
 function resetSearch() {
   const searchInput = document.getElementById("searchInput");
   if (searchInput) searchInput.value = "";
+  const clearBtn = document.getElementById("btnClearSearch");
+  if (clearBtn) clearBtn.classList.add("hidden");
+  isCompendiumExpanded = false;
   setCategory("todas");
+  const searchSection = document.querySelector(".search-section");
+  if (searchSection) {
+    searchSection.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
 }
 
 function filterCardsByQuery(query) {
   const cleanQuery = normalizeText(query);
+  const clearBtn = document.getElementById("btnClearSearch");
+  if (clearBtn) {
+    clearBtn.classList.toggle("hidden", cleanQuery.length === 0);
+  }
 
   if (!cleanQuery) {
-    const filtered = currentCategory === "todas" 
-      ? LEGAL_DB 
-      : LEGAL_DB.filter(c => c.category === currentCategory || c.category === "todas");
-    renderCards(filtered, false);
-    return filtered;
+    if (currentCategory === "todas") {
+      renderCards(LEGAL_DB, false);
+    } else {
+      const filtered = LEGAL_DB.filter(c => c.category === currentCategory || c.category === "todas");
+      renderCards(filtered, true);
+    }
+    return;
   }
 
   // 1. Detección directa si la búsqueda es estrictamente el número de artículo o "art/articulo 193"
@@ -1560,19 +1646,26 @@ function setCategory(cat) {
   if (query) {
     filterCardsByQuery(query);
   } else {
-    const filtered = cat === "todas" 
-      ? LEGAL_DB 
-      : LEGAL_DB.filter(c => c.category === cat || c.category === "todas");
-    renderCards(filtered, false);
+    if (cat === "todas") {
+      renderCards(LEGAL_DB, false);
+    } else {
+      const filtered = LEGAL_DB.filter(c => c.category === cat || c.category === "todas");
+      renderCards(filtered, true);
+    }
   }
 }
 
 // Configurar Event Listeners
 function setupEventListeners() {
   const searchInput = document.getElementById("searchInput");
+  const clearBtn = document.getElementById("btnClearSearch");
   if (searchInput) {
     searchInput.addEventListener("input", (e) => {
-      filterCardsByQuery(e.target.value.trim());
+      const val = e.target.value.trim();
+      if (clearBtn) {
+        clearBtn.classList.toggle("hidden", val.length === 0);
+      }
+      filterCardsByQuery(val);
     });
     
     searchInput.addEventListener("keydown", (e) => {

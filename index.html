@@ -118,9 +118,15 @@
           type="text" 
           id="searchInput" 
           class="search-input" 
-          placeholder="Escribe un artículo o tema: ej. 193, celular, morral..." 
+          placeholder="Escribe un artículo o tema: ej. 193, celular, batea..." 
           autocomplete="off"
         >
+        <button id="btnClearSearch" class="btn-clear-search hidden" title="Limpiar búsqueda" onclick="resetSearch()">
+          <svg class="icon icon-sm" viewBox="0 0 24 24">
+            <line x1="18" y1="6" x2="6" y2="18"/>
+            <line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
         <button id="btnPointer" class="btn-pointer" title="Hablar o consultar artículo" aria-label="Hablar o consultar artículo">
           <!-- Icono Micrófono Minimalista Blanco -->
           <svg class="icon" viewBox="0 0 24 24" style="stroke: #fff;">
@@ -149,24 +155,13 @@
       </button>
     </nav>
 
-    <!-- 4. Verificador Legal en Vivo -->
-    <div class="section-title">
-      <span>Respuestas claras con la ley en mano</span>
-      <span id="resultsCount" style="font-size: 0.75rem; color: var(--accent-blue);"></span>
-    </div>
-
-    <!-- Contenedor Dinámico de Fichas -->
-    <div id="cardsContainer" class="cards-container">
-      <!-- Se llena dinámicamente desde app.js -->
-    </div>
-
-    <!-- 5. Artículos y Temas Más Consultados (Debajo del Verificador) -->
+    <!-- 4. Acceso Rápido: Dudas más frecuentes en la calle -->
     <section class="consulted-section">
       <div class="consulted-header">
         <svg class="icon icon-sm" viewBox="0 0 24 24">
           <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
         </svg>
-        <span>Dudas más frecuentes en la calle:</span>
+        <span>Dudas más frecuentes en la calle (Toca para consultar):</span>
       </div>
       <div class="quick-chips-grid">
         <button class="chip-btn" onclick="quickSearchArticle('193')">Art. 193 (¿Revisar carro o celular?)</button>
@@ -189,6 +184,48 @@
         <button class="chip-btn" onclick="quickSearchArticle('218')">Art. 218 (Resistencia a la autoridad)</button>
       </div>
     </section>
+
+    <!-- 5. Barra de Estado de Búsqueda (Visible al buscar o filtrar) -->
+    <div id="searchStatusBar" class="search-status-bar hidden">
+      <div class="search-status-text">
+        <svg class="icon icon-sm" viewBox="0 0 24 24" style="stroke: var(--accent-blue);">
+          <circle cx="11" cy="11" r="8"/>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+        <span id="searchStatusLabel">Resultados encontrados</span>
+      </div>
+      <button class="btn-reset-filter" onclick="resetSearch()">
+        <svg class="icon icon-xs" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        <span>Limpiar / Ver compendio</span>
+      </button>
+    </div>
+
+    <!-- 6. Compendio Jurídico Desplegable (Visible en estado inicial) -->
+    <div id="compendiumToggleCard" class="compendium-toggle-card" onclick="toggleFullCompendium()">
+      <div class="compendium-toggle-left">
+        <div class="compendium-toggle-icon-wrap">
+          <svg class="icon icon-sm" viewBox="0 0 24 24">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+          </svg>
+        </div>
+        <div class="compendium-toggle-text">
+          <span class="compendium-toggle-title">Compendio Legal Completo</span>
+          <span id="compendiumToggleSub" class="compendium-toggle-sub">26 situaciones de calle • Toca para desplegar</span>
+        </div>
+      </div>
+      <button class="btn-toggle-compendium" type="button" aria-label="Desplegar o plegar compendio">
+        <span id="compendiumToggleText">Desplegar</span>
+        <svg class="icon icon-xs" id="compendiumToggleIcon" viewBox="0 0 24 24">
+          <polyline points="6 9 12 15 18 9"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Contenedor Dinámico de Fichas (Resultados de Búsqueda o Compendio Desplegado) -->
+    <div id="cardsContainer" class="cards-container" style="display: none;">
+      <!-- Se llena dinámicamente desde app.js -->
+    </div>
 
     <!-- 6. Reglas de Oro (Al Final) -->
     <section id="pocketGuide" class="rules-section">
