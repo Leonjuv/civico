@@ -1157,8 +1157,8 @@ function executePwaInstall() {
 // ==========================================================================
 
 function shareApp() {
-  const shareTitle = "CÍVICO - Derechos Ciudadanos en Alcabalas";
-  const shareText = "🛡️ Ten a la mano CÍVICO para defenderte con la ley en mano ante alcabalas y revisiones en Venezuela. Funciona 100% sin internet ni saldo:";
+  const shareTitle = "CÍVICO 🇻🇪 - Verificador Legal Ciudadano";
+  const shareText = "🛡️ Te comparto *CÍVICO*, la app para conocer nuestros derechos y verificar leyes en tiempo real ante alcabalas en Venezuela.\n\n✨ Es gratuita, segura y funciona *100% sin internet ni saldo*. Agrégala a tu pantalla de inicio:\n";
   const shareUrl = "https://leonjuv.github.io/civico/";
 
   if (navigator.share) {
