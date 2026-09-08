@@ -2119,4 +2119,63 @@ body {
   }
 }
 
+/* Novedad destacada en el boletín (Sección 6) */
+.news-bulletin-highlight {
+  margin: 12px 0 14px 0;
+  background: rgba(1, 85, 166, 0.12);
+  border: 1px solid rgba(0, 151, 215, 0.25);
+  border-radius: 12px;
+  padding: 12px 14px;
+}
+
+.news-bulletin-badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--accent-blue);
+  letter-spacing: 0.05em;
+  margin-bottom: 4px;
+}
+
+.news-bulletin-highlight p {
+  font-size: 0.78rem;
+  color: #cbd5e1;
+  line-height: 1.45;
+  margin: 0;
+}
+
+/* Sección 7: Propósito de la iniciativa & Respaldo legal */
+.about-inline-section {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--card-radius);
+  padding: 20px;
+  margin-bottom: 24px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+}
+
+.about-inline-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.about-inline-title {
+  font-size: 0.96rem;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+.about-inline-desc {
+  font-size: 0.83rem;
+  color: var(--text-secondary);
+  line-height: 1.45;
+  margin-bottom: 16px;
+}
+
+
 
