@@ -1,4 +1,4 @@
-const CACHE_NAME = "civico-v14";
+const CACHE_NAME = "civico-v15";
 const ASSETS_TO_CACHE = [
   "./",
   "./index.html",
@@ -6,6 +6,7 @@ const ASSETS_TO_CACHE = [
   "./app.js",
   "./manifest.json",
   "./icono-civico.svg",
+  "./icono-compartir.svg",
   "./logotipo-civico.svg",
   "./icon-192.png",
   "./icon-512.png",
