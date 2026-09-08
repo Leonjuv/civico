@@ -39,6 +39,19 @@
   <meta name="twitter:title" content="CÍVICO - Tus Derechos y Leyes en Alcabalas">
   <meta name="twitter:description" content="Verificador legal offline y gratuito para ciudadanos en Venezuela. Conoce tus derechos ante alcabalas, retención de vehículos y revisión de celulares.">
   <meta name="twitter:image" content="https://leonjuv.github.io/civico/icon-512.png">
+
+  <!-- Telemetría & Analítica Anónima (Google Analytics 4 - Privacidad Blindada) -->
+  <!-- Puedes sustituir 'G-CIVICO_TRACK' con tu ID de medición de Google Analytics cuando desees -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CIVICO_TRACK"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-CIVICO_TRACK', {
+      'anonymize_ip': true,
+      'send_page_view': true
+    });
+  </script>
 </head>
 <body>
 
@@ -236,6 +249,90 @@
           </svg>
         </div>
       </button>
+    </section>
+
+    <!-- 8. Sección Comunitaria & Actualizaciones (Red CÍVICO & Leads Voluntarios) -->
+    <section class="community-section">
+      <div class="community-card">
+        <div class="community-header">
+          <span class="community-badge">
+            <svg class="icon icon-sm" viewBox="0 0 24 24" style="stroke: var(--accent-blue);">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+            Comunidad & Actualizaciones
+          </span>
+          <h3 class="community-title">Únete a la Red CÍVICO</h3>
+          <p class="community-desc">
+            Sé el primero en enterarte de reformas a leyes de tránsito, nuevas gacetas oficiales y herramientas para la defensa de tus derechos.
+          </p>
+        </div>
+
+        <!-- Botón Canal de Difusión WhatsApp -->
+        <a id="btnWhatsAppChannel" href="https://whatsapp.com/channel/0029Vaexample" target="_blank" rel="noopener noreferrer" class="btn-community-whatsapp" onclick="trackCommunityClick('whatsapp_channel')">
+          <div class="channel-icon-wrap">
+            <svg class="icon icon-sm" viewBox="0 0 24 24" style="stroke: #fff;">
+              <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+            </svg>
+          </div>
+          <div class="channel-text-col">
+            <strong>Canal Oficial en WhatsApp</strong>
+            <span>Noticias y alertas legales directas a tu teléfono</span>
+          </div>
+          <svg class="icon icon-sm channel-arrow" viewBox="0 0 24 24">
+            <polyline points="9 18 15 12 9 6"/>
+          </svg>
+        </a>
+
+        <!-- Separador o Alternativa por Email -->
+        <div class="community-divider">
+          <span>o recibe actualizaciones por correo</span>
+        </div>
+
+        <!-- Formulario de Boletín Legal -->
+        <form id="newsletterForm" class="newsletter-form" onsubmit="handleNewsletterSubmit(event)">
+          <div class="newsletter-input-group">
+            <div class="newsletter-input-wrap">
+              <svg class="icon icon-sm input-mail-icon" viewBox="0 0 24 24">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
+              </svg>
+              <input type="email" id="newsletterEmail" class="newsletter-input" placeholder="tu-correo@ejemplo.com" required autocomplete="email">
+            </div>
+            <button type="submit" id="btnNewsletterSubmit" class="btn-newsletter-submit">
+              <span>Unirme</span>
+              <svg class="icon icon-sm" viewBox="0 0 24 24">
+                <line x1="5" y1="12" x2="19" y2="12"/>
+                <polyline points="12 5 19 12 12 19"/>
+              </svg>
+            </button>
+          </div>
+        </form>
+
+        <!-- Estado cuando ya está suscrito -->
+        <div id="newsletterSuccessBox" class="newsletter-success-box" style="display: none;">
+          <div class="success-icon-wrap">
+            <svg class="icon icon-sm" viewBox="0 0 24 24" style="stroke: var(--accent-green);">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+          </div>
+          <div class="success-text">
+            <strong>¡Ya formas parte de la Red CÍVICO!</strong>
+            <p id="newsletterSuccessEmail" class="success-sub">Recibirás nuestras actualizaciones legales importantes.</p>
+          </div>
+        </div>
+
+        <!-- Garantía de Privacidad y Anonimato -->
+        <div class="community-privacy-note">
+          <svg class="icon icon-sm" viewBox="0 0 24 24" style="stroke: var(--accent-gold);">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+          </svg>
+          <span><strong>Privacidad blindada:</strong> Tu uso de leyes en alcabalas es 100% anónimo. No cruzamos consultas con tu correo ni compartimos datos con terceros.</span>
+        </div>
+      </div>
     </section>
 
     <!-- Footer con Acceso a Créditos y Blindaje Legal -->

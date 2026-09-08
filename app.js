@@ -427,6 +427,10 @@ function initApp() {
   setupEventListeners();
   setupPwaInstall();
   registerServiceWorker();
+  initCommunitySection();
+  trackCivicoEvent("session_start", {
+    is_standalone: window.matchMedia("(display-mode: standalone)").matches || (window.navigator.standalone === true)
+  });
 }
 
 // Comprobar si el usuario cerró el banner anteriormente
@@ -787,12 +791,14 @@ function filterCardsByQuery(query) {
   const result = scoredCards.map(item => item.card);
 
   renderCards(result, true);
+  trackCivicoEvent("search_query", { query: cleanQuery.substring(0, 40) });
   return result;
 }
 
 // Configurar Categorías (Tabs)
 function setCategory(cat) {
   currentCategory = cat;
+  trackCivicoEvent("category_click", { category: cat });
   
   document.querySelectorAll(".tab-btn").forEach(btn => {
     btn.classList.toggle("active", btn.dataset.category === cat);
@@ -957,6 +963,7 @@ function openSosModal(focusSelect = false) {
   const modal = document.getElementById("sosModal");
   if (modal) {
     modal.classList.add("active");
+    trackCivicoEvent("sos_modal_open");
     if (focusSelect) {
       setTimeout(() => {
         const select = document.getElementById("stateSelect");
@@ -973,7 +980,10 @@ function closeSosModal() {
 
 function openAboutModal() {
   const modal = document.getElementById("aboutModal");
-  if (modal) modal.classList.add("active");
+  if (modal) {
+    modal.classList.add("active");
+    trackCivicoEvent("credits_modal_open");
+  }
 }
 
 function closeAboutModal() {
@@ -983,6 +993,7 @@ function closeAboutModal() {
 
 // Botón de Alerta Rápida WhatsApp SOS con Ubicación GPS y Estado
 function sendSosWhatsApp() {
+  trackCivicoEvent("sos_whatsapp_sent", { state: currentState });
   const regionData = REGIONAL_EMERGENCY_DATA[currentState] || REGIONAL_EMERGENCY_DATA["nacional"];
   const baseMessage = `*ALERTA SOS - RETENCIÓN POLICIAL / ALCABALA*\nMe acaban de detener en un punto de control o patrullaje.\n*Entidad:* ${regionData.name}\nPor favor monitoreen mi situación.`;
   
@@ -1045,11 +1056,13 @@ function setupPwaInstall() {
   window.addEventListener("beforeinstallprompt", (e) => {
     e.preventDefault();
     deferredInstallPrompt = e;
+    trackCivicoEvent("pwa_prompt_received");
     console.log("Evento beforeinstallprompt interceptado");
   });
 
   window.addEventListener("appinstalled", () => {
     deferredInstallPrompt = null;
+    trackCivicoEvent("pwa_installed");
     showToast("✅ ¡Acceso directo creado con el logo oficial en tu pantalla de inicio!");
     updateInstallButtonState(true);
   });
@@ -1079,6 +1092,7 @@ function openInstallConsentModal() {
     return;
   }
 
+  trackCivicoEvent("pwa_consent_modal_open");
   const modal = document.getElementById("installConsentModal");
   if (modal) {
     const isIos = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
@@ -1119,8 +1133,10 @@ function executePwaInstall() {
     deferredInstallPrompt.prompt();
     deferredInstallPrompt.userChoice.then((choiceResult) => {
       if (choiceResult.outcome === "accepted") {
+        trackCivicoEvent("pwa_install_accepted");
         showToast("✅ Creando acceso directo con logo oficial...");
       } else {
+        trackCivicoEvent("pwa_install_declined");
         showToast("Instalación cancelada. Puedes añadirla en cualquier momento.");
       }
       deferredInstallPrompt = null;
@@ -1128,6 +1144,7 @@ function executePwaInstall() {
     closeInstallConsentModal();
   } else if (isIos) {
     closeInstallConsentModal();
+    trackCivicoEvent("pwa_ios_instruction_shown");
     showToast("Toca el botón Compartir de Safari y elige 'Añadir a pantalla de inicio'.");
   } else {
     closeInstallConsentModal();
@@ -1150,6 +1167,7 @@ function shareApp() {
       text: shareText,
       url: shareUrl
     }).then(() => {
+      trackCivicoEvent("share_completed", { method: "native" });
       showToast("¡Gracias por compartir esta herramienta cívica!");
     }).catch((err) => {
       if (err.name !== "AbortError") {
@@ -1163,6 +1181,7 @@ function shareApp() {
 
 function fallbackCopyShare(text, url) {
   const fullShare = `${text}\n${url}`;
+  trackCivicoEvent("share_completed", { method: "clipboard" });
   if (navigator.clipboard && navigator.clipboard.writeText) {
     navigator.clipboard.writeText(fullShare).then(() => {
       showToast("✅ Enlace copiado con logo oficial. Pégalo en WhatsApp o Telegram.");
@@ -1173,3 +1192,111 @@ function fallbackCopyShare(text, url) {
     prompt("Copia y comparte este enlace:", fullShare);
   }
 }
+
+// ==========================================================================
+// Módulo de Analítica & Telemetría Anónima (Métricas de Tracción y Privacidad)
+// ==========================================================================
+
+function trackCivicoEvent(eventName, eventParams = {}) {
+  // 1. Google Analytics 4 (si hay conexión a internet y gtag está cargado)
+  if (typeof gtag === "function") {
+    try {
+      gtag("event", eventName, eventParams);
+    } catch (e) {
+      console.warn("Analytics tag warning:", e);
+    }
+  }
+
+  // 2. Registro local interno anónimo (para auditoría de métricas del creador)
+  try {
+    const stats = JSON.parse(localStorage.getItem("civico_metrics_summary") || "{}");
+    stats[eventName] = (stats[eventName] || 0) + 1;
+    stats.last_event_at = new Date().toISOString();
+    localStorage.setItem("civico_metrics_summary", JSON.stringify(stats));
+  } catch (e) {}
+}
+
+// Clic en canales comunitarios (WhatsApp / Telegram)
+function trackCommunityClick(channel) {
+  trackCivicoEvent("community_channel_click", { channel });
+}
+
+// ==========================================================================
+// Comunidad CÍVICO & Captura Voluntaria de Leads (Boletín Legal)
+// ==========================================================================
+
+function initCommunitySection() {
+  const savedLead = localStorage.getItem("civico_newsletter_lead");
+  const form = document.getElementById("newsletterForm");
+  const successBox = document.getElementById("newsletterSuccessBox");
+  const successEmail = document.getElementById("newsletterSuccessEmail");
+
+  if (savedLead && form && successBox) {
+    form.style.display = "none";
+    successBox.style.display = "flex";
+    if (successEmail) {
+      successEmail.textContent = `Actualizaciones legales enviadas a: ${savedLead}`;
+    }
+  }
+}
+
+function handleNewsletterSubmit(event) {
+  event.preventDefault();
+  const input = document.getElementById("newsletterEmail");
+  if (!input) return;
+
+  const email = input.value.trim().toLowerCase();
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    showToast("Por favor introduce un correo electrónico válido.");
+    return;
+  }
+
+  // 1. Guardar en almacenamiento local persistente
+  localStorage.setItem("civico_newsletter_lead", email);
+
+  try {
+    const leadsList = JSON.parse(localStorage.getItem("civico_leads_archive") || "[]");
+    leadsList.push({
+      email: email,
+      created_at: new Date().toISOString(),
+      source: "boletin_web"
+    });
+    localStorage.setItem("civico_leads_archive", JSON.stringify(leadsList));
+  } catch (e) {}
+
+  // 2. Disparar evento de conversión
+  trackCivicoEvent("lead_subscribed", {
+    domain: email.split("@")[1] || "unknown"
+  });
+
+  // 3. Actualizar interfaz
+  const form = document.getElementById("newsletterForm");
+  const successBox = document.getElementById("newsletterSuccessBox");
+  const successEmail = document.getElementById("newsletterSuccessEmail");
+
+  if (form) form.style.display = "none";
+  if (successBox) successBox.style.display = "flex";
+  if (successEmail) successEmail.textContent = `Actualizaciones legales enviadas a: ${email}`;
+
+  showToast("🎉 ¡Bienvenido a la Red CÍVICO! Te mantendremos informado.");
+}
+
+// Herramientas de consulta de métricas para el desarrollador
+window.CivicoAnalytics = {
+  track: trackCivicoEvent,
+  getMetrics: () => {
+    try {
+      return JSON.parse(localStorage.getItem("civico_metrics_summary") || "{}");
+    } catch (e) {
+      return {};
+    }
+  },
+  getLeads: () => {
+    try {
+      return JSON.parse(localStorage.getItem("civico_leads_archive") || "[]");
+    } catch (e) {
+      return [];
+    }
+  }
+};
