@@ -1157,7 +1157,7 @@ function executePwaInstall() {
 // ==========================================================================
 
 function shareApp() {
-  const shareTitle = "CÍVICO 🇻🇪 - Verificador Legal Ciudadano";
+  const shareTitle = "CÍVICO 🇻🇪 - La ley en tus manos";
   const shareText = "🛡️ Te comparto *CÍVICO*, la app para conocer nuestros derechos y verificar leyes en tiempo real ante alcabalas en Venezuela.\n\n✨ Es gratuita, segura y funciona *100% sin internet ni saldo*. Agrégala a tu pantalla de inicio:\n";
   const shareUrl = "https://leonjuv.github.io/civico/";
 

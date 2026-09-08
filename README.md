@@ -1,5 +1,5 @@
 # CÍVICO 🇻🇪
-**Desarrollado por Leonardo Urdaneta • Verificador Legal & Ciudadano**
+**Desarrollado por Leonardo Urdaneta • La ley en tus manos**
 
 Aplicación web progresiva (PWA) móvil, 100% gratuita y funcional **sin conexión a internet (offline)**, diseñada para que los ciudadanos venezolanos (a pie, en moto o en vehículo) conozcan sus derechos al instante, consulten con su propia voz, respondan a los funcionarios con educación y base jurídica sólida, y tengan acceso a números de emergencia de marcado rápido.
 
