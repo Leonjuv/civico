@@ -1,4 +1,4 @@
-const CACHE_NAME = "civico-v15";
+const CACHE_NAME = "civico-v16";
 const ASSETS_TO_CACHE = [
   "./",
   "./index.html",
@@ -48,7 +48,7 @@ self.addEventListener("activate", (event) => {
 // Intercepción de peticiones (Estrategia Cache-First)
 self.addEventListener("fetch", (event) => {
   event.respondWith(
-    caches.match(event.request).then((cachedResponse) => {
+    caches.match(event.request, { ignoreSearch: true }).then((cachedResponse) => {
       if (cachedResponse) {
         return cachedResponse;
       }
