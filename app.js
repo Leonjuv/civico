@@ -934,6 +934,450 @@ const LEGAL_DB = [
       "maletero",
       "sembrar"
     ]
+  },
+  {
+      "id": "art-25-crbv-orden-superior-nula",
+      "articleNumber": "25",
+      "legalBody": "Constitución de la República Bolivariana de Venezuela (CRBV)",
+      "category": "todas",
+      "tag": "alerta",
+      "tagLabel": "ART. 25 CRBV • ÓRDENES ILEGALES",
+      "title": "Artículo 25 CRBV: ¿Puede un policía justificar un abuso diciendo que 'recibe órdenes de un superior'?",
+      "officerClaim": "El oficial dice: 'Yo solo estoy cumpliendo órdenes de mi superior / comandante, bájese o entregue las cosas'.",
+      "verdict": "TOTALMENTE ILEGAL / NULIDAD CONSTITUCIONAL",
+      "verdictClass": "tag-prohibido",
+      "verdictExplanation": "El Artículo 25 de la Constitución establece que TODO acto del Poder Público que viole derechos constitucionales es NULO DE PLENO DERECHO. La responsabilidad es penal, civil y administrativa personal del funcionario que lo ejecuta, SIN QUE LE SIRVAN DE EXCUSA ÓRDENES SUPERIORES.",
+      "quickAns": "Ningún policía puede violar la ley escudándose en órdenes de un superior. La responsabilidad penal es personal e individual.",
+      "actualLaw": "Art. 25 CRBV: Todo acto dictado en ejercicio del Poder Público que viole o menoscabe los derechos garantizados por esta Constitución y la ley es nulo; y los funcionarios públicos y funcionarias públicas que lo ordenen o ejecuten incurren en responsabilidad penal, civil y administrativa, según los casos, sin que les sirvan de excusa órdenes superiores.",
+      "script": "Oficial, con todo el respeto institucional, el Artículo 25 de la Constitución Nacional estipula claramente que ninguna orden superior exime de responsabilidad legal a quien ejecute un procedimiento violatorio de derechos. Por la seguridad de ambos, le solicito ajustar este procedimiento estrictamente a la ley.",
+      "legalBasis": "Artículo 25 de la Constitución de la República Bolivariana de Venezuela (CRBV).",
+      "consequence": "Si el funcionario comete un acto arbitrario alegando órdenes superiores:",
+      "consequenceDetails": [
+          "Incurre en responsabilidad penal personal (no lo protege su superior ante la Fiscalía).",
+          "Comete Abuso de Autoridad (Art. 67 Ley Contra la Corrupción) y privación ilegítima o concusión.",
+          "Todo acto derivado de esa orden es nulo y sancionable disciplinariamente por el ICAP."
+      ],
+      "diplomaticPhrase": "Funcionario, entiendo su labor, pero el Artículo 25 constitucional le protege a usted y a mí: no podemos ejecutar actos fuera de la norma escrita.",
+      "keywords": [
+          "25",
+          "art 25",
+          "articulo 25",
+          "crbv 25",
+          "orden superior",
+          "ordenes superiores",
+          "mandado por el jefe",
+          "comandante ordeno",
+          "nulidad",
+          "responsabilidad penal"
+      ]
+  },
+  {
+      "id": "art-46-crbv-trato-digno-integridad",
+      "articleNumber": "46",
+      "legalBody": "Constitución de la República Bolivariana de Venezuela (CRBV)",
+      "category": "todas",
+      "tag": "seguro",
+      "tagLabel": "ART. 46 CRBV • INTEGRIDAD Y TRATO DIGNO",
+      "title": "Artículo 46 CRBV: ¿Puede un funcionario gritarme, empujarme o amenazarme en un procedimiento?",
+      "officerClaim": "El oficial actúa con prepotencia, alza la voz, usa groserías o dice: 'Aquí mando yo y usted hace lo que yo le diga'.",
+      "verdict": "PROHIBIDO / VIOLACIÓN DE INTEGRIDAD MORAL",
+      "verdictClass": "tag-prohibido",
+      "verdictExplanation": "El Artículo 46 de la Constitución consagra la inviolabilidad de la integridad física, psíquica y moral de toda persona. Prohíbe de forma absoluta cualquier trato cruel, inhumano, degradante o intimidación verbal por parte de agentes del Estado.",
+      "quickAns": "Prohibido gritar, insultar o empujar. La Constitución exige respeto y trato digno a toda persona sin excepción.",
+      "actualLaw": "Art. 46 CRBV: Toda persona tiene derecho a que se respete su integridad física, psíquica y moral; en consecuencia: 1. Ninguna persona puede ser sometida a penas, torturas o tratos crueles, inhumanos o degradantes. 2. Toda persona privada de libertad será tratada con el respeto debido a la dignidad humana.",
+      "script": "Oficial, me estoy dirigiendo a usted con absoluta serenidad, educación y respeto. El Artículo 46 de la Constitución y la Ley de Policía le obligan a brindarme un trato digno y libre de agresiones verbales o físicas. Le pido que mantengamos el diálogo con el respeto que ambos merecemos.",
+      "legalBasis": "Artículo 46 de la Constitución de la República Bolivariana de Venezuela (CRBV) y Art. 70 de la LOSPENB.",
+      "consequence": "Si el funcionario utiliza violencia verbal, gritos o agresiones físicas:",
+      "consequenceDetails": [
+          "Incurre en falta gravísima sancionada con destitución del cuerpo policial (LOSPENB).",
+          "Comete Delito contra la Dignidad y Tratos Degradantes contemplado en el Código Penal y tratados de DDHH.",
+          "El ciudadano puede denunciar con nombre y apellido ante la Fiscalía de Derechos Fundamentales del Ministerio Público."
+      ],
+      "diplomaticPhrase": "Oficial, con serenidad podemos solucionar cualquier inquietud. No hay necesidad de alzar la voz ni usar amenazas.",
+      "keywords": [
+          "46",
+          "art 46",
+          "articulo 46",
+          "crbv 46",
+          "trato digno",
+          "gritar",
+          "insultos",
+          "groserias",
+          "amenaza",
+          "trato cruel",
+          "humillacion",
+          "integridad fisica",
+          "agresion verbal"
+      ]
+  },
+  {
+      "id": "art-49-crbv-debido-proceso-inocencia",
+      "articleNumber": "49",
+      "legalBody": "Constitución de la República Bolivariana de Venezuela (CRBV)",
+      "category": "todas",
+      "tag": "seguro",
+      "tagLabel": "ART. 49 CRBV • DEBIDO PROCESO",
+      "title": "Artículo 49 CRBV: ¿Tengo que demostrarle al policía que soy inocente en la calle?",
+      "officerClaim": "El oficial dice: 'Usted es sospechoso, demuéstreme que no está haciendo nada malo o me lo llevo'.",
+      "verdict": "ILEGAL / LA CARGA DE LA PRUEBA ES DEL POLICÍA",
+      "verdictClass": "tag-prohibido",
+      "verdictExplanation": "El Artículo 49 ordinal 2° de la Constitución consagra la Presunción de Inocencia como pilar del Debido Proceso. Nadie tiene que demostrar su inocencia en una acera; es la autoridad quien debe tener elementos objetivos y comprobables antes de presumir un delito.",
+      "quickAns": "Toda persona se presume inocente. El policía no puede tratarte como culpable ni exigirte que demuestres inocencia en la calle.",
+      "actualLaw": "Art. 49 ordinal 2° CRBV: El debido proceso se aplicará a todas las actuaciones judiciales y administrativas; en consecuencia: Toda persona se presume inocente mientras no se pruebe lo contrario.",
+      "script": "Oficial, de conformidad con el Artículo 49 ordinal 2° de nuestra Constitución, toda persona goza de presunción de inocencia. Si existe alguna observación legal específica sobre mi persona o vehículo, le solicito que me señale la norma exacta para verificarla de mutuo acuerdo.",
+      "legalBasis": "Artículo 49 de la Constitución de la República Bolivariana de Venezuela (CRBV).",
+      "consequence": "Si el policía retiene o amedrenta invirtiendo la carga de la prueba:",
+      "consequenceDetails": [
+          "Toda actuación basada en meras suposiciones subjetivas es nula y carece de validez legal probatoria.",
+          "Comete infracción a los Derechos Civiles y Debido Proceso sancionable penal y disciplinariamente.",
+          "No puede privar de libertad a nadie sin flagrancia real comprobada u orden judicial previa."
+      ],
+      "diplomaticPhrase": "Oficial, el debido proceso nos ampara a todos los venezolanos. Con gusto facilito mi documentación para constatar que todo está en regla.",
+      "keywords": [
+          "49",
+          "art 49",
+          "articulo 49",
+          "crbv 49",
+          "debido proceso",
+          "presuncion de inocencia",
+          "demostrar inocencia",
+          "culpable",
+          "sospechoso en la calle"
+      ]
+  },
+  {
+      "id": "art-115-crbv-decomiso-propiedad-privada",
+      "articleNumber": "115",
+      "legalBody": "Constitución de la República Bolivariana de Venezuela (CRBV)",
+      "category": "todas",
+      "tag": "alerta",
+      "tagLabel": "ART. 115 CRBV • DERECHO DE PROPIEDAD",
+      "title": "Artículo 115 CRBV: ¿Puede un policía despojarme o incautar mis pertenencias sin orden de un juez?",
+      "officerClaim": "El oficial dice: 'Esas herramientas / esa mercancía / ese dinero se quedan decomisados por no traer factura comercial'.",
+      "verdict": "PROHIBIDO / DECOMISO ILEGAL O CONFISCACIÓN",
+      "verdictClass": "tag-prohibido",
+      "verdictExplanation": "El Artículo 115 de la Constitución garantiza el derecho inviolable de propiedad y posesión. NINGÚN cuerpo policial puede confiscar ni decomisar bienes muebles, herramientas o dinero propio sin una orden judicial expresa y firme emanada de un tribunal.",
+      "quickAns": "Prohibido decomisar o despojar pertenencias en la calle. Solo un juez de la República mediante sentencia puede ordenar un decomiso.",
+      "actualLaw": "Art. 115 CRBV: Se garantiza el derecho de propiedad. Toda persona tiene derecho al uso, goce, disfrute y disposición de sus bienes. La propiedad está sometida a las condiciones, restricciones y obligaciones que establezca la ley con fines de utilidad pública o de interés general. Sólo por causa de utilidad pública o interés social, mediante sentencia firme y pago de justa indemnización, podrá ser declarada la expropiación.",
+      "script": "Oficial, el Artículo 115 de la Constitución protege el derecho de propiedad y la libre posesión de bienes lícitos. Un cuerpo policial no tiene competencia judicial para decomisar o despojar pertenencias en la calle sin una orden emanada de un tribunal competente.",
+      "legalBasis": "Artículo 115 de la Constitución (CRBV) en concordancia con el Código Civil venezolano.",
+      "consequence": "Si el funcionario retiene o se apropia de pertenencias del ciudadano:",
+      "consequenceDetails": [
+          "Comete el delito de Peculado de Uso o Concusión / Robo impropio (Ley Contra la Corrupción).",
+          "Incurre en privación indebida de bienes sancionada penalmente con prisión de 3 a 7 años.",
+          "El ciudadano debe solicitar recibo oficial firmado y denunciar inmediatamente ante la Fiscalía Superior del Ministerio Público."
+      ],
+      "diplomaticPhrase": "Oficial, son mis pertenencias y herramientas de uso personal de origen lícito amparadas por el Art. 115 de la Carta Magna.",
+      "keywords": [
+          "115",
+          "art 115",
+          "articulo 115",
+          "crbv 115",
+          "propiedad privada",
+          "decomiso",
+          "incautacion",
+          "quitar herramientas",
+          "quitar dinero",
+          "decomisar mercancia",
+          "sin factura",
+          "factura"
+      ]
+  },
+  {
+      "id": "art-113-114-copp-policia-transito-vs-investigacion-penal",
+      "articleNumber": "113",
+      "legalBody": "COPP (Código Orgánico Procesal Penal)",
+      "category": "vehiculo",
+      "tag": "alerta",
+      "tagLabel": "ART. 113 Y 114 COPP • COMPETENCIA POLICIAL",
+      "title": "Artículos 113 y 114 COPP: ¿Puede un policía de tránsito abrirme una investigación penal en la calle?",
+      "officerClaim": "El oficial de tránsito o preventivo dice: 'Lo voy a someter a una averiguación penal y le voy a abrir expediente judicial aquí'.",
+      "verdict": "USURPACIÓN DE FUNCIONES / SOLO FISCALÍA DIRIGE LA INVESTIGACIÓN",
+      "verdictClass": "tag-prohibido",
+      "verdictExplanation": "Los Artículos 113 y 114 del COPP establecen que la investigación penal está reservada EXCLUSIVAMENTE al Ministerio Público en coordinación con los órganos de policía de investigaciones penales debidamente habilitados. Un funcionario de tránsito no puede inventar procedimientos judiciales fuera de su competencia administrativa.",
+      "quickAns": "Un policía de tránsito no puede abrir causas penales en la calle. Las averiguaciones penales solo las dirige el Ministerio Público.",
+      "actualLaw": "Art. 113 y 114 COPP: Los órganos de policía de investigaciones penales son auxiliares del Ministerio Público para la práctica de las diligencias conducentes al esclarecimiento de los hechos punibles. Corresponde al Ministerio Público dirigir la investigación de los hechos punibles.",
+      "script": "Oficial, de acuerdo con los Artículos 113 y 114 del Código Orgánico Procesal Penal, la conducción de cualquier investigación penal compete en exclusiva al Ministerio Público. En materia de vialidad urbana rigen únicamente los procedimientos administrativos de la Ley de Transporte Terrestre.",
+      "legalBasis": "Artículos 113 y 114 del Código Orgánico Procesal Penal (COPP).",
+      "consequence": "Si un funcionario de tránsito inventa acusaciones penales sin fiscal:",
+      "consequenceDetails": [
+          "Incurre en Usurpación de Atribuciones (Art. 138 CRBV) y Abuso de Funciones.",
+          "Toda actuación realizada al margen de la dirección del Ministerio Público carece de validez jurídica.",
+          "Denunciable de inmediato ante el fiscal de guardia por extralimitación de funciones."
+      ],
+      "diplomaticPhrase": "Funcionario, respetemos el ámbito vial que nos compete aquí, sin extrapolarlo indebidamente a materias penales reservadas a la Fiscalía.",
+      "keywords": [
+          "113",
+          "114",
+          "art 113",
+          "art 114",
+          "copp 113",
+          "copp 114",
+          "investigacion penal",
+          "abrir expediente",
+          "competencia policial",
+          "fiscalia",
+          "policia de transito"
+      ]
+  },
+  {
+      "id": "art-192-copp-requisitos-inspeccion-pudor",
+      "articleNumber": "192",
+      "legalBody": "COPP (Código Orgánico Procesal Penal)",
+      "category": "pie",
+      "tag": "seguro",
+      "tagLabel": "ART. 192 COPP • REQUISAS CORPORALES",
+      "title": "Artículo 192 COPP: ¿Qué requisitos exige la ley para que un policía me revise el cuerpo o la ropa?",
+      "officerClaim": "El oficial dice: 'Péguese a la pared y levante las manos que lo voy a tocar y vaciar los bolsillos sin explicaciones'.",
+      "verdict": "PROCEDIMIENTO REGLADO / EXIGE MISMO SEXO Y PUDOR",
+      "verdictClass": "tag-prohibido",
+      "verdictExplanation": "El Artículo 192 del COPP exige 3 condiciones obligatorias: 1) Advertirle primero al ciudadano qué se busca y pedirle que lo muestre voluntariamente; 2) La inspección debe ser hecha obligatoriamente por una persona de SU MISMO SEXO; 3) Respetar escrupulosamente el pudor de la persona.",
+      "quickAns": "Exige: advertencia previa, que la haga alguien de tu MISMO SEXO y respeto total al pudor. Un oficial masculino jamás puede palpar a una mujer.",
+      "actualLaw": "Art. 192 COPP: Antes de proceder a la inspección de una persona, el funcionario deberá advertirle acerca de la sospecha y del objeto que se busca, pidiéndole su exhibición. La inspección se practicará separadamente a cada persona, por una del mismo sexo, y respetando el pudor.",
+      "script": "Oficial, el Artículo 192 del COPP establece que la inspección física debe ser practicada estrictamente por una persona de mi mismo sexo, con respeto al pudor y previa advertencia de lo que se busca. Por favor permítame vaciar mis bolsillos voluntariamente en su presencia.",
+      "legalBasis": "Artículo 192 del Código Orgánico Procesal Penal (COPP).",
+      "consequence": "Si un funcionario varón toca o requisa a una mujer (o viceversa):",
+      "consequenceDetails": [
+          "Comete Delito de Violencia de Género (Ley Orgánica sobre el Derecho de las Mujeres a una Vida Libre de Violencia).",
+          "Constituye falta gravísima con causal de destitución automática en el régimen disciplinario policial.",
+          "Cualquier elemento hallado bajo ese procedimiento viciado resulta nulo en juicio."
+      ],
+      "diplomaticPhrase": "Oficial, con gusto exhibo voluntariamente el contenido de mis bolsillos ante su vista, cumpliendo el protocolo del Art. 192 del COPP.",
+      "keywords": [
+          "192",
+          "art 192",
+          "articulo 192",
+          "copp 192",
+          "requisa corporal",
+          "inspeccion corporal",
+          "mismo sexo",
+          "mujer policia",
+          "palpar cuerpo",
+          "pudor",
+          "tocar bolsillos"
+      ]
+  },
+  {
+      "id": "art-234-copp-flagrancia-vs-sospecha",
+      "articleNumber": "234",
+      "legalBody": "COPP (Código Orgánico Procesal Penal)",
+      "category": "todas",
+      "tag": "alerta",
+      "tagLabel": "ART. 234 COPP • FLAGRANCIA REAL",
+      "title": "Artículo 234 COPP: ¿Qué es realmente la flagrancia y por qué no existe 'flagrancia por actitud sospechosa'?",
+      "officerClaim": "El oficial dice: 'Usted está en flagrancia porque lo vi en actitud sospechosa o nerviosa en la vía pública'.",
+      "verdict": "MENTIRA JURÍDICA / LA ACTITUD SOSPECHOSA NO ES FLAGRANCIA",
+      "verdictClass": "tag-prohibido",
+      "verdictExplanation": "El Artículo 234 del COPP delimita de forma estricta la flagrancia: delito que se esté cometiendo en el instante, o persecución inmediata con armas o instrumentos del delito. La 'actitud sospechosa' o estar nervioso NO es delito en ningún código penal del mundo.",
+      "quickAns": "Flagrancia es solo cuando el delito se comete en el instante exacto. La 'actitud sospechosa' o nerviosismo NO es delito ni flagrancia.",
+      "actualLaw": "Art. 234 COPP: Para los efectos de este Código se tendrá como delito flagrante el que se esté cometiendo o el que acaba de cometerse. También se tendrá como delito flagrante aquel por el cual el sospechoso se vea perseguido por la autoridad policial, por la víctima o por el clamor público, o en el que se le sorprenda a poco de haberse cometido el hecho, en el mismo lugar o cerca de él, con armas, instrumentos u otros objetos que de alguna manera hagan presumir con fundamento que él es el autor.",
+      "script": "Oficial, el Artículo 234 del COPP define con precisión taxativa el delito flagrante. Caminar o transitar pacíficamente no constituye flagrancia ni hecho punible. Le agradezco que me indique si existe alguna verificación pendiente para concluir el chequeo.",
+      "legalBasis": "Artículo 234 del Código Orgánico Procesal Penal (COPP).",
+      "consequence": "Si el policía detiene a un ciudadano alegando 'actitud sospechosa':",
+      "consequenceDetails": [
+          "Incurre en Privación Ilegítima de Libertad (Art. 175 Código Penal, pena de 15 días a 30 meses de prisión).",
+          "El fiscal del Ministerio Público está en la obligación legal de ordenar la libertad inmediata sin cargos.",
+          "Se expone a querella penal por detención arbitraria violatoria del Art. 44 CRBV."
+      ],
+      "diplomaticPhrase": "Oficial, transito de manera pacífica y legal. No me encuentro incurso en ningún supuesto de flagrancia del Artículo 234 del COPP.",
+      "keywords": [
+          "234",
+          "art 234",
+          "articulo 234",
+          "copp 234",
+          "flagrancia",
+          "delito flagrante",
+          "actitud sospechosa",
+          "sospechoso",
+          "nervioso en alcabala",
+          "detencion por sospecha"
+      ]
+  },
+  {
+      "id": "art-65-lospenb-uso-progresivo-fuerza",
+      "articleNumber": "65",
+      "legalBody": "Ley Orgánica del Servicio de Policía (LOSPENB)",
+      "category": "todas",
+      "tag": "alerta",
+      "tagLabel": "ART. 65 LEY POLICÍA • USO DE LA FUERZA",
+      "title": "Artículo 65 LOSPENB: ¿Cuándo puede un policía usar la fuerza o desenfundar su arma de reglamento?",
+      "officerClaim": "El oficial saca su pistola, la rastrilla o amenaza físicamente ante un ciudadano que solo está hablando o preguntando.",
+      "verdict": "ABUSO GRAVÍSIMO / VIOLACIÓN DE LA LEY DE POLICÍA",
+      "verdictClass": "tag-prohibido",
+      "verdictExplanation": "El Artículo 65 de la Ley de Policía obliga a aplicar el Uso Progresivo y Diferenciado de la Fuerza (UPDF). El uso de la fuerza es EXCEPCIONAL y estrictamente proporcional. Si el ciudadano no ejerce violencia física ni armada, el único nivel legítimo es la PRESENCIA Y EL DIÁLOGO VERBAL.",
+      "quickAns": "El policía solo puede usar presencia y diálogo. Descartar, apuntar o desenfundar contra un ciudadano desarmado en calma es delito penal.",
+      "actualLaw": "Art. 65 LOSPENB: El uso de la fuerza por parte de los cuerpos de policía estará orientado por el principio de afirmación de la vida como valor supremo constitucional y legal... La utilización de la fuerza sólo será legítima cuando se emplee en la medida estrictamente necesaria y de forma proporcional al nivel de resistencia del infractor.",
+      "script": "Oficial, me encuentro completamente desarmado, en actitud pacífica y colaborando con el procedimiento. El Artículo 65 de la Ley Orgánica del Servicio de Policía exige el uso diferenciado y proporcional de la fuerza. Le solicito respetuosamente resguardar su arma y continuar mediante el diálogo.",
+      "legalBasis": "Artículo 65 de la Ley Orgánica del Servicio de Policía y del Cuerpo de Policía Nacional Bolivariana (LOSPENB).",
+      "consequence": "Si el funcionario apunta o agrede físicamente a un ciudadano no violento:",
+      "consequenceDetails": [
+          "Comete Delito de Amenaza Agravada y Uso Indebido de Arma de Fuego (penas de hasta 6 años de prisión).",
+          "Apertura inmediata de expediente de destitución ante la Oficina de Control de Actuación Policial (ICAP).",
+          "El ciudadano debe conservar en video el momento exacto como prueba incontrovertible (Art. 20 Res. 109)."
+      ],
+      "diplomaticPhrase": "Oficial, mantengo la calma y respeto total a su persona. Por favor conversemos con tranquilidad sin exhibición de armamento.",
+      "keywords": [
+          "65",
+          "art 65",
+          "articulo 65",
+          "ley de policia 65",
+          "lospenb 65",
+          "uso de la fuerza",
+          "desenfundar arma",
+          "apuntar con pistola",
+          "rastrillar pistola",
+          "amenaza con arma",
+          "proporcionalidad policia"
+      ]
+  },
+  {
+      "id": "art-68-70-lospenb-placa-identificacion-obligatoria",
+      "articleNumber": "68",
+      "legalBody": "Ley Orgánica del Servicio de Policía (LOSPENB)",
+      "category": "todas",
+      "tag": "seguro",
+      "tagLabel": "ART. 68 Y 70 LEY POLICÍA • IDENTIFICACIÓN",
+      "title": "Artículos 68 y 70 LOSPENB: ¿Tiene derecho el ciudadano a exigir el nombre, rango y placa del funcionario?",
+      "officerClaim": "El oficial tapa su apellido, se niega a dar su nombre o dice: 'A usted no le importa quién soy yo ni mi jerarquía'.",
+      "verdict": "OBLIGACIÓN LEGAL DEL POLICÍA / DERECHO DEL CIUDADANO",
+      "verdictClass": "tag-alerta",
+      "verdictExplanation": "Los Artículos 68 y 70 de la Ley de Policía establecen la OBLIGACIÓN ESTRICTA de todo funcionario de portar visiblemente su placa con nombre, rango y cuerpo policial. Actuar encapuchado o sin identificación visible en labores ordinarias de calle es causal de sanción disciplinaria.",
+      "quickAns": "El policía está obligado por ley a mostrar su placa con nombre, rango y cuerpo policial. Ocultarla es falta disciplinaria grave.",
+      "actualLaw": "Art. 68 y 70 LOSPENB: Los funcionarios policiales en servicio deberán portar visiblemente su placa de identificación, donde conste el nombre del funcionario, rango y cuerpo policial al que pertenece. En todo momento deberán actuar con estricto apego a los derechos humanos, cortesía y respeto mutuo.",
+      "script": "Oficial, conforme a los Artículos 68 y 70 de la Ley Orgánica del Servicio de Policía, es un deber legal del funcionario identificarse con su nombre y jerarquía visible ante el ciudadano. Le solicito cordialmente me indique su apellido y cuerpo policial para la tranquilidad de ambos.",
+      "legalBasis": "Artículos 68 y 70 de la Ley Orgánica del Servicio de Policía y del Cuerpo de Policía Nacional Bolivariana (LOSPENB).",
+      "consequence": "Si el policía se niega a identificarse o actúa con rostro tapado sin ser unidad táctica autorizada:",
+      "consequenceDetails": [
+          "Incurre en falta disciplinaria grave en el régimen interno policial (Ley de Estatuto de la Función Policial).",
+          "Genera presunción de irregularidad que habilita la denuncia inmediata al 0800-POLICIA (ICAP).",
+          "El ciudadano tiene pleno derecho de fotografiar o filmar la patrulla o número de moto oficial como referencia."
+      ],
+      "diplomaticPhrase": "Oficial, conocer su apellido y rango es un derecho cívico garantizado por la ley para entablar una comunicación formal y respetuosa.",
+      "keywords": [
+          "68",
+          "70",
+          "art 68",
+          "art 70",
+          "lospenb 68",
+          "lospenb 70",
+          "placa policial",
+          "identificacion del policia",
+          "apellido policia",
+          "policia sin placa",
+          "policia encapuchado",
+          "policia no da nombre"
+      ]
+  },
+  {
+      "id": "art-169-170-ltt-procedimiento-legal-multas",
+      "articleNumber": "169",
+      "legalBody": "Ley de Transporte Terrestre (LTT)",
+      "category": "vehiculo",
+      "tag": "seguro",
+      "tagLabel": "ART. 169 Y 170 LTT • BOLETA DE INFRACCIÓN",
+      "title": "Artículos 169 y 170 LTT: ¿Cómo es el procedimiento legal para aplicar una multa de tránsito?",
+      "officerClaim": "El oficial dice: 'Tiene que resolver aquí en efectivo o le retengo el carro hasta que pague la multa'.",
+      "verdict": "TOTALMENTE ILEGAL / SOLO BOLETA OFICIAL CON 30 DÍAS DE PLAZO",
+      "verdictClass": "tag-prohibido",
+      "verdictExplanation": "Los Artículos 169 y 170 de la Ley de Transporte Terrestre disponen que la sanción se impone EXCLUSIVAMENTE mediante Boleta Oficial de Infracción. El conductor tiene un plazo legal de 30 días hábiles para pagarla en una entidad bancaria o impugnarla. El policía jamás cobra ni retiene el vehículo por una simple multa.",
+      "quickAns": "Una multa NUNCA se paga en la calle ni amerita retención del carro. Se expide boleta oficial con 30 días hábiles para pagar en el banco.",
+      "actualLaw": "Art. 169 y 170 LTT: Las infracciones a la presente Ley serán sancionadas mediante boleta de citación que contendrá los datos del infractor, vehículo, hecho imputado y monto de la multa. El presunto infractor dispondrá de treinta (30) días hábiles para pagar la multa impuesta en una entidad bancaria autorizada o para impugnarla.",
+      "script": "Oficial, de acuerdo con los Artículos 169 y 170 de la Ley de Transporte Terrestre, si usted considera que existe una infracción, por favor expídame la boleta oficial correspondiente para proceder a su cancelación en los 30 días bancarios que estipula la ley.",
+      "legalBasis": "Artículos 169 y 170 de la Ley de Transporte Terrestre.",
+      "consequence": "Si el funcionario exige dinero directo o retiene documentos por una multa:",
+      "consequenceDetails": [
+          "Incurre en Delito de Concusión (Art. 60 Ley Contra la Corrupción, prisión de 3 a 7 años).",
+          "No existe ninguna disposición legal que autorice el cobro mano a mano a funcionarios en la vía.",
+          "El ciudadano debe conservar la boleta o grabar el intento de cobro irregular."
+      ],
+      "diplomaticPhrase": "Oficial, permítame mi boleta oficial de infracción para cumplir con mi deber de pago a través de los canales bancarios legales.",
+      "keywords": [
+          "169",
+          "170",
+          "art 169",
+          "art 170",
+          "ltt 169",
+          "ltt 170",
+          "boleta de multa",
+          "multa de transito",
+          "pagar multa",
+          "30 dias multa",
+          "infraccion ltt",
+          "resolver aqui"
+      ]
+  },
+  {
+      "id": "art-182-ltt-entrega-inmediata-vehiculo",
+      "articleNumber": "182",
+      "legalBody": "Ley de Transporte Terrestre (LTT)",
+      "category": "vehiculo",
+      "tag": "seguro",
+      "tagLabel": "ART. 182 LTT • DEVOLUCIÓN DEL VEHÍCULO",
+      "title": "Artículo 182 LTT: ¿Tienen que devolverme el carro o moto inmediatamente si subsano la falta en el sitio?",
+      "officerClaim": "El oficial dice: 'Ya trajo el documento o el casco, pero igual la moto se queda retenida por 48 horas de castigo'.",
+      "verdict": "PROHIBIDO EL CASTIGO / DEVOLUCIÓN INMEDIATA",
+      "verdictClass": "tag-prohibido",
+      "verdictExplanation": "El Artículo 182 de la Ley de Transporte Terrestre estipula taxativamente que la retención preventiva finaliza EN EL MISMO INSTANTE en que se subsana la causa que la motivó. Los cuerpos policiales no tienen facultad de imponer 'castigos de retención por días'.",
+      "quickAns": "Una vez presentada la documentación o subsanada la causa, el vehículo DEBE SER ENTREGADO DE INMEDIATO sin dilación.",
+      "actualLaw": "Art. 182 LTT: La retención preventiva del vehículo cesará inmediatamente una vez que se hayan subsanado las causas que le dieron origen, previa entrega de la documentación correspondiente y sin cobro de sumas indebidas.",
+      "script": "Oficial, el Artículo 182 de la Ley de Transporte Terrestre establece que la retención preventiva cesa inmediatamente una vez subsanada la causa. Habiendo presentado el requisito exigido, le solicito con respeto la entrega de mi vehículo para continuar la marcha.",
+      "legalBasis": "Artículo 182 de la Ley de Transporte Terrestre.",
+      "consequence": "Si el policía insiste en retener el vehículo luego de subsanar:",
+      "consequenceDetails": [
+          "Comete Retención Indebida y Abuso de Poder penado por la legislación nacional.",
+          "El ciudadano no debe pagar 'resguardo' ni 'tarifas de patio' no homologadas oficialmente.",
+          "Se debe solicitar la presencia inmediata del supervisor de zona o llamar a la Fiscalía de Guardia."
+      ],
+      "diplomaticPhrase": "Oficial, el requisito ha sido subsanado a satisfacción de la norma. Solicito formalmente la entrega inmediata de mi vehículo conforme al Art. 182 LTT.",
+      "keywords": [
+          "182",
+          "art 182",
+          "articulo 182",
+          "ltt 182",
+          "devolucion de vehiculo",
+          "entregar la moto",
+          "subsanar",
+          "retencion por 48 horas",
+          "liberar el carro"
+      ]
+  },
+  {
+      "id": "art-7-8-res-109-requisitos-alcabala-valida",
+      "articleNumber": "7",
+      "legalBody": "Resolución Conjunta 109 (Defensa e Interior, Justicia y Paz)",
+      "category": "vehiculo",
+      "tag": "alerta",
+      "tagLabel": "RES. 109 • REQUISITOS DE ALCABALAS",
+      "title": "Artículos 7 y 8 de la Resolución 109: ¿Qué elementos obligatorios debe tener una alcabala para ser legal?",
+      "officerClaim": "Dos oficiales en una moto te paran a oscuras en una esquina sin conos ni patrullas rotuladas.",
+      "verdict": "PUNTO IRREGULAR / ALCABALA NO AUTORIZADA",
+      "verdictClass": "tag-prohibido",
+      "verdictExplanation": "Los Artículos 7 y 8 de la Resolución Conjunta 109 exigen que todo Punto de Control cuente con: 1) Señalización reflectiva diurna y nocturna visible a distancia reglamentaria; 2) Unidades policiales rotuladas; 3) Supervisión jerárquica directa; 4) Registro en la orden de operaciones diaria.",
+      "quickAns": "Un punto de control debe tener conos reflectivos, patrullas rotuladas visibles y supervisores. Parar carros a oscuras viola la Resolución 109.",
+      "actualLaw": "Art. 7 y 8 Resolución Conjunta 109: Todo punto de control debe estar debidamente identificado con dispositivos de seguridad vial (conos, señalización reflectiva visible día y noche) y contar con funcionarios debidamente uniformados e identificados con unidades vehiculares oficiales asignadas al servicio.",
+      "script": "Oficiales, buenas noches. Conforme a la Resolución Conjunta 109 de los Ministerios de Interior y Defensa, todo punto de control requiere señalización reflectiva y unidades oficiales visibles. Les solicito con respeto me confirmen si se trata de un patrullaje preventivo de rutina.",
+      "legalBasis": "Artículos 7 y 8 de la Resolución Conjunta 109 (Gaceta Oficial N° 42.458).",
+      "consequence": "Si se trata de un punto clandestino o 'alcabala fantasma':",
+      "consequenceDetails": [
+          "Constituye desacato a la resolución ministerial conjunta dictada por los Ministros de Defensa e Interior.",
+          "El ciudadano está facultado para grabar el procedimiento en video continuo (Art. 20 Res. 109).",
+          "Se debe reportar la ubicación exacta al VEN 911 o al ICAP (0800-POLICIA)."
+      ],
+      "diplomaticPhrase": "Oficiales, me detengo en una zona iluminada para seguridad de todos, cumpliendo con los protocolos de seguridad vial de la Resolución 109.",
+      "keywords": [
+          "7",
+          "8",
+          "art 7",
+          "art 8",
+          "res 109 art 7",
+          "alcabala ilegal",
+          "alcabala a oscuras",
+          "alcabala clandestina",
+          "conos",
+          "senalizacion alcabala",
+          "resolucion 109",
+          "requisitos alcabala"
+      ]
   }
 ];
 
@@ -1275,13 +1719,13 @@ function renderCards(cards, isSearchResult = false) {
         container.style.display = "none";
         compendiumToggleCard.classList.remove("expanded");
         if (compendiumToggleText) compendiumToggleText.textContent = "Desplegar";
-        if (compendiumToggleSub) compendiumToggleSub.textContent = "26 situaciones de calle • Toca para desplegar";
+        if (compendiumToggleSub) compendiumToggleSub.textContent = `${LEGAL_DB.length} situaciones de calle • Toca para desplegar`;
         return;
       } else {
         container.style.display = "flex";
         compendiumToggleCard.classList.add("expanded");
         if (compendiumToggleText) compendiumToggleText.textContent = "Ocultar";
-        if (compendiumToggleSub) compendiumToggleSub.textContent = "26 situaciones desplegadas • Toca para plegar";
+        if (compendiumToggleSub) compendiumToggleSub.textContent = `${LEGAL_DB.length} situaciones desplegadas • Toca para plegar`;
       }
     }
   }
